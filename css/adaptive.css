@@ -1,0 +1,98 @@
+@media only screen and (max-width: 1250px){
+    .main_title{
+        font-size: 4em;
+    }
+
+}
+
+@media only screen and (max-width: 990px){
+    .main_title{
+        font-size: 3em;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .nav_menu{
+        width: 700px;
+    }
+}
+
+@media only screen and (max-width: 750px){
+    .main_title{
+        font-size: 2em;
+    }
+    .nav_menu{
+        width: 600px;
+    }
+    .logo_name{
+        font-size: 1.5em;
+    }
+    .first{
+        padding: 40px 10px 5px 15px;
+    }
+    .second{
+        padding: 10px 0px 15px 10px;
+    }
+    .btn_icon_heart{
+        margin-left: 120px;
+        }
+        
+}
+
+@media only screen and (max-width: 600px){
+    .main_title{
+        font-size: 2em;
+    }
+    .nav_menu{
+        width: 500px;
+    }
+
+    .logo_img{
+        width: 50px;
+        padding: 15px 25px;
+    }
+    .logo_name{
+        font-size: 1.3em;
+        display: none;
+    }
+    .first{
+        padding: 40px 0px 5px 0px;
+    }
+    .second{
+        padding: 10px 0px 15px 0px;
+    }
+    .btn_icon_heart{
+        margin-left: 150px;
+    }
+    .nav-icon_heart-text{
+        font-size: 1em;
+    }
+    .nav-icon_suitcase-text{
+        font-size: 1em;
+            
+    } 
+
+    .auth_text{
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .nav_menu{
+        width: 350px;
+        margin: 0;
+    }
+    
+    .btn_icon_heart{
+        margin-left: 100px;
+    }
+    .main_title{
+        font-size: 1.4em;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .btn_icon_heart{
+        margin-left: 50px;
+    }
+}

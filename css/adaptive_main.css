@@ -1,0 +1,72 @@
+@media only screen and (max-width: 960px){
+    .main_app_background{
+        width: 800px;
+    }
+    .list_of_buttons{
+        margin-left: -100px;
+    }
+    .map{
+        width: 750px;
+    }
+}
+
+@media only screen and (max-width: 830px){
+    .main_app_background{
+        width: 600px;
+        height: 1370px;
+    }
+    .map{
+        width: 550px;
+        margin-top: -420px;
+    }
+    .list_of_buttons{
+        margin-left: -100px;
+    }
+    .text-field_input{
+        width: 140px;
+        height: 40px;
+        font-size: 12px;
+        font-weight: 100;
+    }
+    .names_of_items {
+        font-size: 25px;
+    }
+    .description_of_items {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+}   
+
+@media only screen and (max-width: 640px){
+    .main_app_background{
+        width: 500px;
+        height: 1200px;
+    }
+    .map{
+        width: 450px;
+        height: 350px;
+        margin-top: -450px;
+    }
+    .list_of_buttons{
+        margin-left: -100px;
+        margin-top: -20px;
+    }
+    .text-field_input{
+        width: 120px;
+        height: 40px;
+        font-size: 11px;
+        font-weight: 100;
+        text-align: center;
+    }
+    .names_of_items {
+        font-size: 20px;
+    }
+    .description_of_items {
+        font-size: 12px;
+        margin-bottom: 55px;
+    }
+    .meme{
+        padding: 120px;
+    }
+}
