@@ -4,6 +4,7 @@ body{
     background-size: cover;
     object-fit: cover;
     font-family: "Literata", serif;
+    font-weight: 500;
 }
 
 body:after {
@@ -13,7 +14,7 @@ body:after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, .65);
+    background: rgba(0, 0, 0, .3);
     z-index: 2;
 }
 
@@ -27,8 +28,8 @@ body:after {
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.7);
-    background: rgba(255, 255, 255, 0.65);
-    width: 30%;
+    background: rgba(255, 255, 255, 0.6);
+    width: 25%;
     border-radius: 20px;
     position: relative;
     z-index: 4;
@@ -41,11 +42,12 @@ body:after {
 
 .form-login{
     padding: 60px 0;
+    width: 75%;
 }
 
 .form-login p{
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 35px;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 25px;
 }
@@ -59,6 +61,7 @@ body:after {
 
 .form-login label{
     font-size: 20px;
+    font-weight: 600;
 }
 
 .btn-login{
@@ -69,7 +72,7 @@ body:after {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
     background: #fff;
     cursor: pointer;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 20px;
     color: #000;
     display: inline-block;
@@ -87,6 +90,8 @@ body:after {
     display: flex;
     margin-top: 15px;
     text-align: center;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .form-action span{
@@ -118,6 +123,7 @@ body:after {
 .btn-registration{
     width: 85%;
     margin-top: 40px;
+    font-size: 1.2em;
 }
 
 
