@@ -83,6 +83,24 @@ body:after {
     margin-top: 20px;
 }
 
+.form-action{
+    display: flex;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.form-action span{
+    padding-right: 10px;
+}
+
+.form-action a{
+    color: rgb(39 71 118);
+}
+
+.form-action a:hover{
+    color: rgb(40, 97, 184);
+}
+
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #000000;
     background-color: #ffffffcb;
