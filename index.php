@@ -70,43 +70,20 @@
             ?>
 
             <div class="places">
+                <?php foreach($result as $row): ?>
                 <div class="place">
                     <div class="text">
-                        <li class="names_of_items">Имя</li>
-                        <li class="description_of_items">Описание</li>
-                    </div>
-                    <button type="submit" class="text-field_input" id="button">
-                        Построить маршрут
-                    </button>
-
-                </div>
-            </div>
-
-            <div class="list">
-                <ul class="list_of_items">
-                    
-                    <?php foreach ($result as $row): ?>
-                    
                         <li class="names_of_items"><?= $row["Name"]; ?></li>
                         <li class="description_of_items"><?= $row["Description"]; ?></li>
-                            
-                    <?php endforeach; ?>
-                    
-                </ul>
-                <div class="list_of_buttons">
-
-                    <?php foreach ($result as $row): ?>
-                        
-                        <li>
-                            <button type="submit" class="text-field_input" id="button" value=<?= $row["Name"]; ?>>
-                                Построить маршрут
-                            </button>
-                        </li>
-                            
-                    <?php endforeach; ?>
-
+                    </div>
+                    <button type="submit" class="text-field_input" id="button" value=<?= $row["Location"]; ?>>
+                        Построить маршрут
+                    </button>
                 </div>
+                <?php endforeach; ?>
             </div>
+
+            
             <div id="map" class="map">
                 <h2 class="meme">Тут должна быть карта =)))</h2>
             </div>
