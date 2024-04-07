@@ -171,8 +171,12 @@ a{
     margin: 0 20px 0 20px;
 }
 
-.day_tour_text {
+.day_tour{
     text-decoration-line: underline;
+}
+
+.day_tour_text{
+    text-transform: uppercase;
 }
 
 .list_of_items {
@@ -212,7 +216,6 @@ a{
 }
 
 .text-field_input {
-    margin: 75px 0px 0px 0px;
     border-radius: 20px;
     width: 258px;
     height: 51px;
@@ -250,4 +253,24 @@ a{
     padding-top: 220px;
     font-family: "Literata", serif;
     color: antiquewhite;
+}
+
+.night_type{
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 20px 0 #C77AC4B2;
+}
+
+.night_text{
+    color: #fff;
+}
+
+.switcher button{
+    background-color: transparent;
+    border: none;
+}
+
+.place{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 100px;
 }

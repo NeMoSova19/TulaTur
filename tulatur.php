@@ -7,7 +7,7 @@
             $username = "k90653re_bd";
             $password = "Mysql123";
             $base = "k90653re_bd";  
-            TulaTur::$connection = mysqli_connect($servername,$username,$password, $base);
+            TulaTur::$connection = new mysqli($servername,$username,$password, $base);
             
             if(TulaTur::$connection) {
                 return true;

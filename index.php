@@ -49,16 +49,17 @@
     <main>
         <section class="section_main">
             <div class="main_title-block">
-                <h1 class="main_title">Начни свой тур</h1>
-                <img class="main_background-img" src="img/tula_day.jpg" alt="">
+                <div class="title-tour"><h1 class="main_title">Начни свой тур</h1></div>
+                <img class="main_background-img img-day" src="img/tula_day.jpg" alt="">
+                <img class="main_background-img img-night" src="img/tula_night.jpg" alt="" style="display: none;">
             </div>
         </section>
         <section class="section_background"></section>
         <section class="main_app_background">
             <div class="switcher">
-                <h2 class="day_tour_text">Дневной тур</h2>
+                <button class="day-type"><h2 class="day_tour_text day-under">Дневной тур</h2></button>
                 <img class="switcher_logo" src="img/free-icon-day-and-night-8495814.png" alt="переключатель" a="#">
-                <h2 class="night_tour_text">Ночной тур</h2>
+                <button class="night-type"><h2 class="day_tour_text night_under">Ночной тур</h2></button>
             </div>
            
             <?php 
@@ -67,6 +68,19 @@
             $result = TulaTur::GetAllPlaces();
             TulaTur::Disconnect();
             ?>
+
+            <div class="places">
+                <div class="place">
+                    <div class="text">
+                        <li class="names_of_items">Имя</li>
+                        <li class="description_of_items">Описание</li>
+                    </div>
+                    <button type="submit" class="text-field_input" id="button">
+                        Построить маршрут
+                    </button>
+
+                </div>
+            </div>
 
             <div class="list">
                 <ul class="list_of_items">
