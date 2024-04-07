@@ -55,5 +55,32 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(nightTourUnder);
 
     });
+
+    dayButton.addEventListener("click", function() {
+        imgDay.style.display = "block";
+        imgNight.style.display = "none";
+        // formNight.classList.add('night_type');
+        formNight.classList.remove('night_type');
+
+        textNight.forEach(element => {
+            element.classList.remove('night_text');
+        });
+        
+        descNight.forEach(element => {
+            element.classList.remove('night_text');
+        });
+
+        buttonSwitch.forEach(element => {
+            element.style.color ="#000"
+        });
+
+        backgroundSection.style.backgroundColor = "#FBFAE2";
+        backgroundSection.style.boxShadow = "0px -55px 150px 150px #FBFAE2";
+
+        nightTourUnder.classList.remove('day_tour');
+        dayTourUnder.classList.add('day_tour');
+        console.log(nightTourUnder);
+
+    });
     
 });
