@@ -41,29 +41,34 @@
                 <img class="switcher_logo" src="img/free-icon-day-and-night-8495814.png" alt="переключатель" a="#">
                 <h2 class="night_tour_text">Ночной тур</h2>
             </div>
+           
+            <?php 
+            include("tulatur.php");
+            TulaTur::Connect();
+            $result = TulaTur::GetAllPlaces();
+            TulaTur::Disconnect();
+            ?>
+
             <div class="list">
-            <ul class="list_of_items">
-                <li class="names_of_items">Название места</li>
-                <li class="description_of_items">Примерное описание места, адрес и график работы</li>
-                <li class="names_of_items">Название места</li>
-                <li class="description_of_items">Примерное описание места, адрес и график работы</li>
-                <li class="names_of_items">Название места</li>
-                <li class="description_of_items">Примерное описание места, адрес и график работы</li>
-                <li class="names_of_items">Название места</li>
-                <li class="description_of_items">Примерное описание места, адрес и график работы</li>
-                <li class="names_of_items">Название места</li>
-                <li class="description_of_items">Примерное описание места, адрес и график работы</li>
-                <li class="names_of_items">Название места</li>
-                <li class="description_of_items">Примерное описание места, адрес и график работы</li>
-            </ul>
-            <div class="list_of_buttons">
-                <li><input type="submit" class="text-field_input" id="button" value="Построить маршрут"></li>
-                <li><input type="submit" class="text-field_input" id="button" value="Построить маршрут"></li>
-                <li><input type="submit" class="text-field_input" id="button" value="Построить маршрут"></li>
-                <li><input type="submit" class="text-field_input" id="button" value="Построить маршрут"></li>
-                <li><input type="submit" class="text-field_input" id="button" value="Построить маршрут"></li>
-                <li><input type="submit" class="text-field_input" id="button" value="Построить маршрут"></li>
-            </div>
+                <ul class="list_of_items">
+                    
+                    <?php foreach ($result as $row): ?>
+                    
+                        <li class="names_of_items"><?= $row["Name"]; ?></li>
+                        <li class="description_of_items"><?= $row["Description"]; ?></li>
+                            
+                    <?php endforeach; ?>
+                    
+                </ul>
+                <div class="list_of_buttons">
+
+                    <?php foreach ($result as $row): ?>
+                        
+                        <li><input type="submit" class="text-field_input" id="button" value=<?= $row["Name"]; ?>></li>
+                            
+                    <?php endforeach; ?>
+
+                </div>
             </div>
             <div id="map" class="map">
                 <h2 class="meme">Тут должна быть карта =)))</h2>
