@@ -29,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var buttonSwitch = document.querySelectorAll('.day_tour_text');
 
     var nightTourUnder = document.querySelector('.night_under');
+    var mainBlock = document.querySelector('main')
+    var bodyBlock = document.querySelector('body')
+    var headerBlock = document.querySelector('header')
 
     nightButton.addEventListener("click", function() {
         imgDay.style.display = "none";
@@ -53,6 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
         nightTourUnder.classList.add('day_tour');
         dayTourUnder.classList.remove('day_tour');
         console.log(nightTourUnder);
+        mainBlock.style.backgroundColor = "#0B0114";
+        bodyBlock.style.backgroundColor = "#0B0114";
+        headerBlock.style.backgroundColor = "#fff";
 
     });
 
