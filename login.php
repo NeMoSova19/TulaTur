@@ -10,8 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $result = TulaTur::VerifyUser($username, $password);
     if($result === "OK"){
-        $_SESSION['user_id'] = $_POST['login'];
-
+        $_SESSION['login'] = $_POST['login'];
         header('Location: index.php');
     }
     else{

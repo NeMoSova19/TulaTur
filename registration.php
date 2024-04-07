@@ -13,8 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $result = TulaTur::TryRegisterNewUser($username, $password1);
         if($result === "OK"){
-            $_SESSION['user_id'] = $_POST['login'];
-            
+            $_SESSION['login'] = $_POST['login'];
             header('Location: index.php');
         }
         else{

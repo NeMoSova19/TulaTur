@@ -1,6 +1,7 @@
 <?php
     class TulaTur{
         private static $connection;
+        public static $_login;
         public static function Connect() {
             $servername = "k90653re.beget.tech";
             $username = "k90653re_bd";
