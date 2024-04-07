@@ -147,7 +147,6 @@ a{
 .main_app_background {
     border-radius: 50px;
     width: 920px;
-    height: 1450px;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.7);
     background: rgba(255, 255, 255, 0.7);
     z-index: 6;
@@ -190,6 +189,7 @@ a{
     color: #000;
     align-items: center;
     position: relative;
+    max-width: 25ch;
 
 }
 
@@ -200,6 +200,7 @@ a{
     list-style-type: none;
     margin-bottom: 20px;
     font-style: italic;
+    max-width: 45ch;
 }
 
 .list_of_buttons {
@@ -242,7 +243,6 @@ a{
     background-color: #333;
     display: block;
     margin: auto;
-    margin-top: -350px;
     z-index: 7;
     text-align: center;
     justify-content: center;
