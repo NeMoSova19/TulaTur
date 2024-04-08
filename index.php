@@ -55,7 +55,7 @@
                 <div class="place">
                     <div class="text">
                         <li class="names_of_items">
-                            <a class="name_link" href="/blank.php?id=<?= $row["ID"];?>"> <?= $row["Name"]; ?></a>
+                            <a class="names_of_items" href="/blank.php?id=<?= $row["ID"];?>"> <?= $row["Name"]; ?></a>
                         </li>
                         <li class="description_of_items"><?= $row["Description"]; ?></li>
                     </div>
