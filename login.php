@@ -14,7 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: index.php');
     }
     else{
-        echo "$result";
+        if($result === "User not found"){
+            $_SESSION['error'] = "Пользователь не найден";
+            header('Location: login-form.php');
+            exit(); 
+        }
+        $_SESSION['error'] = "$result";
+        header('Location: login-form.php');
+        exit(); 
     }
 
     TulaTur::Disconnect();

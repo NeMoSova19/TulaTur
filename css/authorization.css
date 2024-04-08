@@ -37,7 +37,7 @@ body:after {
 
 .background-login{
     height: 100vh;
-    padding-top: 10%;
+    padding-top: 8%;
 }
 
 .form-login{
@@ -100,6 +100,7 @@ body:after {
 
 .form-action a{
     color: rgb(39 71 118);
+    margin: auto;
 }
 
 .form-action a:hover{

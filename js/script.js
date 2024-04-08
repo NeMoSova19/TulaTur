@@ -46,13 +46,13 @@ document.addEventListener("DOMContentLoaded", function() {
         nightTourUnder.classList.add('day_tour');
         dayTourUnder.classList.remove('day_tour');
         console.log(nightTourUnder);
-        mainBlock.style.backgroundColor = "#0B0114";
-        bodyBlock.style.backgroundColor = "#0B0114";
+        bodyBlock.style.backgroundColor = "#0b0114";
         headerBlock.style.backgroundColor = "#fff";
 
     });
 
     dayButton.addEventListener("click", function() {
+        // location.reload();
         imgDay.style.display = "block";
         imgNight.style.display = "none";
         // formNight.classList.add('night_type');
@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         nightTourUnder.classList.remove('day_tour');
         dayTourUnder.classList.add('day_tour');
-        console.log(nightTourUnder);
+        bodyBlock.style.backgroundColor = "#fbfae2";
+
+        headerBlock.style.backgroundColor = "#fff";
 
     });
     
