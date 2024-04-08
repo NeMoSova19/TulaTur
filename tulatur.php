@@ -160,6 +160,10 @@
             TulaTur::Request("UPDATE Places SET Comments='$json_str' WHERE Id = $id");
         }
 
+        public static function GetAllTags(){
+            return TulaTur::Request("SELECT * FROM Tags")->fetch_all(MYSQLI_ASSOC);
+        }
+
 
         //////////////////////////////////////////////////////////////////
 
@@ -189,4 +193,19 @@
             return (bool)preg_match($pattern, $password);
         }
     }
+
+
+    function getIntersect($arr1_json, $arr2)
+{
+    $arr1 = json_decode($arr1_json);
+    foreach($arr1 as $val1)
+    {
+        foreach($arr2 as $val2)
+        {
+            if($val1 == $val2)
+            { return true; }
+        }
+    }
+    return false;
+}
 ?>

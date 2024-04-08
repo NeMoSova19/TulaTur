@@ -1,5 +1,11 @@
 <?php
     session_start();
+
+    include("tulatur.php");
+    TulaTur::Connect();
+    $result = TulaTur::GetAllPlaces();
+    $allTags = TulaTur::GetAllTags();
+    TulaTur::Disconnect();
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +32,7 @@
 </head>
 <body>
     <?php include "header.php"; ?>
-    
+
     <main>
         <section class="section_main">
             <div class="main_title-block">
@@ -37,21 +43,31 @@
         </section>
         <section class="section_background"></section>
         <section class="main_app_background">
+            <form action="tags.php" method="post">
+                <div class="search-container">
+                    <div class="tag-list">
+                        <label>Выберите теги:</label><br>
+                        <?php foreach($allTags as $tag): ?>
+                            <input type="checkbox" id=<?= $tag['Name']; ?> name="tags[]" value=<?= $tag['ID']; ?> <?= isset($_SESSION['tags'])?(in_array($tag['ID'], $_SESSION['tags'])?'checked':''):'' ?> >
+                            <label for=<?= $tag['Name']; ?>><?= $tag['Name']; ?></label><br>
+                        <?php endforeach; ?>
+                    </div>
+                    <input type="text" class="search-input" placeholder="Введите запрос...">
+                    <button class="search-button">Поиск</button>
+                    <button type="reset" class="search-button">Сбросить теги</button>
+                </div>
+            </form>
+            
             <div class="switcher">
                 <button class="day-type"><h2 class="day_tour_text day-under">Дневной тур</h2></button>
                 <img class="switcher_logo" src="img/free-icon-day-and-night-8495814.png" alt="переключатель" a="#">
                 <button class="night-type"><h2 class="day_tour_text night_under">Ночной тур</h2></button>
             </div>
            
-            <?php 
-            include("tulatur.php");
-            TulaTur::Connect();
-            $result = TulaTur::GetAllPlaces();
-            TulaTur::Disconnect();
-            ?>
-
             <div class="places">
-                <?php foreach($result as $row): ?>
+                <?php foreach($result as $row):
+                    if(isset($_SESSION['tags']) and getIntersect($row['Tags'], $_SESSION['tags']) or !isset($_SESSION['tags'])):
+                    ?>
                 <div class="place">
                     <div class="text">
                         <li class="names_of_items">
@@ -63,7 +79,7 @@
                         Построить маршрут
                     </button>
                 </div>
-                <?php endforeach; ?>
+                <?php endif; endforeach; ?>
             </div>
 
         </section>

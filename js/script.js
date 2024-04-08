@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var headerBlock = document.querySelector('header')
 
     nightButton.addEventListener("click", function() {
+        
         imgDay.style.display = "none";
         imgNight.style.display = "block";
         formNight.classList.add('night_type');
