@@ -48,7 +48,7 @@
               <div class="mb-3">
                 <div class="error-message">
                   <?php if(!empty($error_message)): ?>
-                    <div class="error-message">
+                    <div class="alert alert-danger" role="alert">
                         <?php echo $error_message; ?>
                     </div>
                   <?php endif; ?>
@@ -56,9 +56,18 @@
               </div>
             <button type="submit" class="btn btn-primary btn-login btn-registration">Зарегистрироваться</button>
             <div class="form-action">
-              <span>Уже есть аккаунт?</span><a href="login.html">Войти</a>
+              <span>Уже есть аккаунт?</span><a href="login-form.php">Войти</a>
             </div>
         </form>
     </div>
+    <script>
+      var errorMessage = document.querySelector('.error-message');
+      var myButton = document.querySelector('.btn-registration');
+      var paddingButton = document.querySelector('.background-registration');
+      if (errorMessage && errorMessage.textContent.trim() !== '') {
+        myButton.style.marginTop = '0';
+        paddingButton.style.paddingTop = '3%';
+      }
+    </script>
 </body>
 </html>

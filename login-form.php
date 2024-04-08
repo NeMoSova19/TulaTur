@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  $error_message = isset($_SESSION['error']) ? $_SESSION['error'] : '';
+  unset($_SESSION['error']); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,11 +38,29 @@
                   <input name="password" type="password" class="form-control" id="exampleInputPassword1">
               </div>
             </div>
+            <div class="mb-3">
+                <div class="error-message">
+                  <?php if(!empty($error_message)): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $error_message; ?>
+                    </div>
+                  <?php endif; ?>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary btn-login">Войти</button>
             <div class="form-action">
-              <span>Еще нет аккаунта?</span><a href="registration.html">Зарегистрироваться</a>
+              <span>Еще нет аккаунта?</span><a href="registration-form.php" class="login-link">Зарегистрироваться</a>
             </div>
         </form>
     </div>
+    <script>
+      var errorMessage = document.querySelector('.error-message');
+      var myButton = document.querySelector('.btn-registration');
+      var paddingButton = document.querySelector('.background-login');
+      if (errorMessage && errorMessage.textContent.trim() !== '') {
+        myButton.style.marginTop = '0';
+        paddingButton.style.paddingTop = '5%';
+      }
+    </script>
 </body>
 </html>
