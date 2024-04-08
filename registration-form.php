@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  $error_message = isset($_SESSION['error']) ? $_SESSION['error'] : '';
+  unset($_SESSION['error']); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +43,15 @@
                       <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
                     </svg>
                     <input name="password2" type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="error-message">
+                  <?php if(!empty($error_message)): ?>
+                    <div class="error-message">
+                        <?php echo $error_message; ?>
+                    </div>
+                  <?php endif; ?>
                 </div>
               </div>
             <button type="submit" class="btn btn-primary btn-login btn-registration">Зарегистрироваться</button>

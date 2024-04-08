@@ -17,11 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: index.php');
         }
         else{
-            echo "$result";
+            $_SESSION['error'] = "$result";
+            header('Location: registration-form.php');
+            exit(); 
         }
     }
     else{
-        echo "Пароли не совпадают";
+        $_SESSION['error'] = "Пароли не совпадают";
+        header('Location: registration-form.php');
+        exit(); 
     }
 
     TulaTur::Disconnect();
