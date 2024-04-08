@@ -46,8 +46,8 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
             </div>
             <div class="like-dislike">
-                <img class="icon_like" src="img/free-icon-favorite-2989863.png" alt="Like">
-                <img class="icon_dislike" src="#" alt="Dislike">
+                <img class="icon_like" src="img/like_black.png" alt="Like">
+                <img class="icon_dislike" src="img/dislike_black.png" alt="Dislike">
             </div>
             <div class="comments">
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos qui officia doloribus doloremque sunt et enim dignissimos, quam ipsum non!</p>
