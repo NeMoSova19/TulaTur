@@ -1,0 +1,95 @@
+.header{
+    width: 100%;
+    height: 100px;
+}
+
+.nav_menu{
+    display: flex;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.logo_img{
+    width: 60px;
+    padding: 15px 0px;
+}
+
+.logo_name{
+    font-size: 2em;
+    font-family: "Literata", serif;
+    font-weight: 400;
+    color: #000;
+}
+
+.first{
+    padding: 30px 10px 5px 15px;
+}
+
+.second{
+    padding: 0px 0px 30px 10px;
+}
+
+.btn_icon_heart {
+    margin-left: 200px;
+    border: none;
+    background-color: #fff;
+    display: flex;
+}
+
+.nav-icon_heart{
+    width: 20px;
+    cursor: pointer;
+    align-self: center;
+}
+.nav-icon_heart-text{
+    padding-left: 10px;
+    font-size: 1.2em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    align-self: center;
+}
+
+.btn_icon_suitcase{
+    margin-left: 40px;
+    border: none;
+    background-color: #fff;
+    display: flex;
+}
+
+.nav-icon_suitcase{
+    width: 20px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.nav-icon_suitcase-text{
+    padding-left: 10px;
+    font-size: 1.2em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    align-self: center;
+}
+
+.auth {
+    margin-left: 40px;
+    border: none;
+    background-color: #fff;
+    display: flex;
+}
+
+.auth_logo {
+    width: 20px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.auth_text {
+    padding-left: 10px;
+    font-size: 1.2em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    align-self: center;
+}

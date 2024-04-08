@@ -4,20 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/header.css" type="text/css">
     <link rel="stylesheet" href="css/blank.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
+    <script src="js/header.js"></script>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav_menu">
-            <a href="#" class="logo_name first">Тула</a>
-            <div class="logo_block"><a href="#" class="logo"><img class="logo_img" src="img/logo.png" alt="Logo"></a></div>
-            <a href="#" class="logo_name second">Тур</a>
-            <button class="btn_icon_heart"><img class="nav-icon_heart" src="img/icon_heart.png" alt=""> <span class="nav-icon_heart-text">Избранное</span></button>
-            <button class="btn_icon_suitcase"><img class="nav-icon_suitcase" src="img/icon_suitcase.png" alt=""> <span class="nav-icon_suitcase-text">Мои поездки</span></button>
-        </nav>
-    </header>
+    <?php include "header.php"; ?>
+
+    <?php
+        if(isset($_GET['id']) and !empty($_GET['id']) and $_GET['id'] > 0) {
+            $product_id = $_GET['id'];
+                ?>
+                <p>
+                    Вы просматриваете товар с id <?= $product_id; ?>
+                </p>
+                <?php
+        } else {
+            ?>
+            <p>
+                Товар не найден
+            </p>
+            <?php
+        }
+    ?>
+
     <main>
         <section class="section_main">
             <div class="main_title-block">
