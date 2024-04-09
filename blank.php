@@ -1,5 +1,37 @@
 <?php
     session_start();
+    if(isset($_GET['id']) and !empty($_GET['id']) and $_GET['id'] > 0) {
+        $id = $_GET['id'];
+        
+        include("tulatur.php");
+        TulaTur::Connect();
+        $place = TulaTur::GetPlace($id);
+        TulaTur::Disconnect();
+        if(!isset($place) or empty($place)){
+            ?>
+            <p>
+                Место не найдено.
+            </p>
+            <p>
+                Invalid id
+            </p>
+        <?php
+        // сюда какую-нибудь балванку покрасивее надо
+        exit();
+        }
+
+    } else {
+        ?>
+            <p>
+                Место не найдено.
+            </p>
+            <p>
+                Invalid id
+            </p>
+        <?php
+        // сюда какую-нибудь балванку покрасивее надо
+        exit(); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,27 +49,10 @@
 <body>
     <?php include "header.php"; ?>
 
-    <?php
-        if(isset($_GET['id']) and !empty($_GET['id']) and $_GET['id'] > 0) {
-            $product_id = $_GET['id'];
-                ?>
-                <p>
-                    Вы просматриваете товар с id <?= $product_id; ?>
-                </p>
-                <?php
-        } else {
-            ?>
-            <p>
-                Товар не найден
-            </p>
-            <?php
-        }
-    ?>
-
     <main>
         <section class="section_main">
             <div class="main_title-block">
-                <h1 class="main_title">Lorem, ipsum.</h1>
+                <h1 class="main_title"><?=$place['Name']?></h1>
                 <img class="main_background-img" src="img/tula_day.jpg" alt="">
             </div>
         </section>
@@ -45,10 +60,10 @@
         <section class="main_app_background">
             <section class="place_info">
                 <div class="discription">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatum autem exercitationem, qui non pariatur.</p>
+                    <p><?=$place['Description']?></p>
                 </div>
                 <div class="adress">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                    <p><?=$place['Location']?></p>
                 </div>
                 <div class="buttons">
                     <button class="btn btn_like" title="Нравится"><img class="icon_like" src="img/like_black.png" alt="Like"></button>
@@ -61,15 +76,7 @@
                     <p>я рюкзак я рюкзак</p>
                 </div>
                 <div class="comments">
-                    <p>Комменты:</p>
-                    <p>Политический срач в комментах</p>
-                    <p>Политический срач в комментах</p>
-                    <p>Политический срач в комментах</p>
-                    <p>Политический срач в комментах</p>
-                    <p>Политический срач в комментах</p>
-                    <p>Политический срач в комментах</p>
-                    <p>Политический срач в комментах</p>
-                    <p>Политический срач в комментах</p>
+                    <?=$place['Comments']?>
                 </div>
             </section>
         </section>

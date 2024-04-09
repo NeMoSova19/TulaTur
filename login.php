@@ -9,19 +9,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     $result = TulaTur::VerifyUser($username, $password);
-    if($result === "OK"){
-        $_SESSION['login'] = $_POST['login'];
-        header('Location: index.php');
-    }
-    else{
-        if($result === "User not found"){
+    
+    switch ($result) {
+        case 'OK':
+            $_SESSION['login'] = $_POST['login'];
+            header('Location: index.php');
+            break;
+            
+        case 'User not found':
             $_SESSION['error'] = "Пользователь не найден";
             header('Location: login-form.php');
             exit(); 
-        }
-        $_SESSION['error'] = "$result";
-        header('Location: login-form.php');
-        exit(); 
+
+        case 'Password incorrect':
+            $_SESSION['error'] = "Неверный пароль";
+            header('Location: login-form.php');
+            exit(); 
     }
 
     TulaTur::Disconnect();

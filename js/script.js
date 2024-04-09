@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var nightButton = document.querySelector(".night-type");
     var dayButton = document.querySelector(".day-type");
+    var resetTagsButton = document.querySelector(".reset-tags");
 
     var imgNight = document.querySelector(".img-night");
     var imgDay = document.querySelector(".img-day");
@@ -81,4 +82,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
     
+
+    resetTagsButton.addEventListener('click', function(){
+        window.location.href = 'reset-tags.php'; 
+        return;
+    });
+
 });
