@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     loginButton.addEventListener("click", function() { 
         var buttonText = loginButton.innerText.trim(); 
-        console.log("okoko");
+        
         if (buttonText === 'Войти') { 
             window.location.href = 'login-form.php'; 
             return;

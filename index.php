@@ -48,7 +48,7 @@
                     <div class="search-section">
                         <input type="text" class="search-input" placeholder="Введите запрос...">
                         <button class="search-button"><p>Поиск<p></button>
-                        <button type="reset" class="search-button"><p>Сбросить теги</p></button>
+                        <button type="button" class="reset-tags search-button"><p>Сбросить теги</p></button>
                     </div>
                 </div>
                 <label>Выберите теги:</label><br>
