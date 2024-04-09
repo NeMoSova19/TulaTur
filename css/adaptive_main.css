@@ -8,9 +8,25 @@
     .map{
         width: 750px;
     }
+    .search-container{
+        width: 94%;
+    }
+    .names_of_items{
+        font-size: 25px;
+    }
+    .description_of_items{
+        max-width: 25ch;
+    }
 }
 
 @media only screen and (max-width: 830px){
+    .search-section{
+        width: 90%;
+    }
+    .search-input{
+        width: 55%;
+    }
+    
     .main_app_background{
         width: 600px;
         height: 1370px;
@@ -29,7 +45,7 @@
         font-weight: 100;
     }
     .names_of_items {
-        font-size: 25px;
+        font-size: 20px;
     }
     .description_of_items {
         font-size: 15px;
@@ -39,9 +55,19 @@
 }   
 
 @media only screen and (max-width: 640px){
+    .search-section{
+        width: 90%;
+    }
+    .search-input{
+        width: 50%;
+    }
+    .tag-list{
+        font-size: 12px;
+    }
+    
     .main_app_background{
         width: 500px;
-        height: 1200px;
+        height: 1600px;
     }
     .map{
         width: 450px;
@@ -59,14 +85,91 @@
         font-weight: 100;
         text-align: center;
     }
+
+    .place{
+        margin: 0px 45px;
+    }
     .names_of_items {
-        font-size: 20px;
+        font-size: 22px;
     }
     .description_of_items {
-        font-size: 12px;
+        font-size: 16px;
         margin-bottom: 55px;
     }
     .meme{
         padding: 120px;
+    }
+}
+
+@media only screen and (max-width: 520px){
+    .search-section{
+        width: 90%;
+    }
+    .search-input{
+        width: 45%;
+    }
+    .search-button{
+        padding: 5px 5px;
+    }
+    
+    .main_app_background{
+        width: 440px;
+        height: 1600px;
+    }
+    .place{
+        margin: 0px 20px;
+    }
+    .names_of_items {
+        font-size: 22px;
+    }
+    .description_of_items {
+        font-size: 16px;
+        margin-bottom: 55px;
+    }
+    .meme{
+        padding: 120px;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .tag-list{
+        font-size: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+    
+    .search-section{
+        width: 90%;
+    }
+    .search-input{
+        width: 39%;
+    }
+    .search-button{
+        margin-left: 1%;
+        padding: 3px 3px;
+    }
+    
+    .main_app_background{
+        width: 350px;
+        height: 1500px;
+    }
+    .place{
+        margin: 0px 5px;
+    }
+    .names_of_items {
+        font-size: 18px;
+    }
+    .description_of_items {
+        font-size: 14px;
+        margin-bottom: 55px;
+    }
+    .meme{
+        padding: 120px;
+    }
+}
+@media only screen and (max-width: 360px){
+    .main_app_background{
+        width: 345px;
+        height: 1500px;
     }
 }
