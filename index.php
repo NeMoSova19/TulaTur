@@ -52,9 +52,11 @@
                             <label for=<?= $tag['Name']; ?>><?= $tag['Name']; ?></label><br>
                         <?php endforeach; ?>
                     </div>
-                    <input type="text" class="search-input" placeholder="Введите запрос...">
-                    <button class="search-button">Поиск</button>
-                    <button type="reset" class="search-button">Сбросить теги</button>
+                    <div class="search-section">
+                        <input type="text" class="search-input" placeholder="Введите запрос...">
+                        <button class="search-button"><p>Поиск<p></button>
+                        <button type="reset" class="search-button"><p>Сбросить теги</p></button>
+                    </div>
                 </div>
             </form>
             
