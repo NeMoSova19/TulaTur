@@ -205,19 +205,8 @@ a{
     justify-items: center;
     width: 90%;
     margin: 20px auto;
-    padding: 2em;
+    padding-top: 2em;
     font-family: "Literata", serif;
-}
-
-.tag-list {
-    margin-right: 20px;
-    float: right;
-    grid-column: 1/5;
-    grid-row: 2;
-    margin-top: 1em;
-    justify-self: flex-start;
-    font-size: 17px;
-    font-weight: 600;
 }
 
 .search-section{
@@ -235,6 +224,23 @@ a{
     font-family: "Literata", serif;
     font-size: 13px;
     font-weight: 400;
+}
+
+.tag-list{
+    margin-top: 1em;
+    font-size: 17px;
+    font-weight: 600; 
+}
+
+.tag-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /*меняй 4 на 3 для маленьких разрешений*/
+    grid-gap: 10px;
+    justify-items: left;
+    width: 90%;
+    margin: 20px auto;
+    /* padding: 2em; */
+    font-family: "Literata", serif; 
 }
 
 .search-input {

@@ -45,18 +45,20 @@
         <section class="main_app_background">
             <form action="tags.php" method="post">
                 <div class="search-container">
-                    <div class="tag-list">
-                        <label>Выберите теги:</label><br>
-                        <?php foreach($allTags as $tag): ?>
-                            <input type="checkbox" id=<?= $tag['Name']; ?> name="tags[]" value=<?= $tag['ID']; ?> <?= isset($_SESSION['tags'])?(in_array($tag['ID'], $_SESSION['tags'])?'checked':''):'' ?> >
-                            <label for=<?= $tag['Name']; ?>><?= $tag['Name']; ?></label><br>
-                        <?php endforeach; ?>
-                    </div>
                     <div class="search-section">
                         <input type="text" class="search-input" placeholder="Введите запрос...">
                         <button class="search-button"><p>Поиск<p></button>
                         <button type="reset" class="search-button"><p>Сбросить теги</p></button>
                     </div>
+                </div>
+                <label>Выберите теги:</label><br>
+                <div class="tag-list">
+                    <?php foreach($allTags as $tag): ?>
+                        <div>
+                            <input type="checkbox" id=<?= $tag['Name']; ?> name="tags[]" value=<?= $tag['ID']; ?> <?= isset($_SESSION['tags'])?(in_array($tag['ID'], $_SESSION['tags'])?'checked':''):'' ?> >
+                            <label for=<?= $tag['Name']; ?>><?= $tag['Name']; ?></label><br>
+                    </div>
+                <?php endforeach; ?>
                 </div>
             </form>
             
