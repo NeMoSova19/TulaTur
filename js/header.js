@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var buttonText = loginButton.innerText.trim(); 
         console.log("okoko");
         if (buttonText === 'Войти') { 
-            window.location.href = 'login.html'; 
+            window.location.href = 'login-form.php'; 
             return;
         }
         window.location.href = 'logout.php'; 
