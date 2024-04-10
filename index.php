@@ -33,7 +33,7 @@
 <body>
     <?php include "header.php"; ?>
 
-    <main> 
+    <main>  
         <section class="section_main">
             <div class="main_title-block">
                 <div class="title-tour"><h1 class="main_title">Начни свой тур</h1></div>
