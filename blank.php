@@ -189,17 +189,13 @@
                         Мой комментарий
                         <form action="/comment.php?id=<?=$id?>" method="POST">
                             <div class="comment-field">
-                                <input name="comment" placeholder='<?=isset($user)?"Введите свой комментарий":"Авторизуйтесь для написания комментария"?>' value='<?=isset($user)?(isset($comments[$user['Login']])?$comments[$user['Login']]:''):''?>' <?=isset($user)?(isset($comments[$user['Login']])?'disabled':''):'disabled';?>>
+                                <input name="comment" placeholder='<?=isset($user)?"Введите свой комментарий":"Авторизуйтесь для написания комментария"?>' value='<?=isset($user)?(isset($comments[$user['Login']])?$comments[$user['Login']]:''):''?>' <?=isset($user)?'':'disabled';?>>
                             </div>    
-                            <div class="comment-btns">
-                                <button>
-                                    Изменить
-                                </button>
-                                <button type="submit">
-                                    Отправить
-                                </button>
-                            </div>
+                            <button <?=isset($user)?'':'disabled';?>>
+                                <?=isset($user)?(isset($comments[$user['Login']])?'Изменить':'Отправить'):'Отправить';?>
+                            </button>
                         </form>
+                    </div>
                     </div>
                     <hr>
                     <div class="other-comments-container">
