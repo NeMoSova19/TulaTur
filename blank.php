@@ -43,11 +43,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$place["Name"]?></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/header.css" type="text/css">
     <link rel="stylesheet" href="css/blank.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=f697c4a8-f8c8-478d-a897-005e1cc67a13&load=package.standard&lang=ru-RU" type="text/javascript"></script>
     <script src="js/header.js"></script>
     <script src="js/map.js"></script>
@@ -67,10 +68,7 @@
                 <h1 class="title"><?=$place['Name']?></h1>
 
                 <div class="discription">
-                    <p><?=$place['ShortDescription']?></p>
-                </div>
-
-                <div class="discription">
+                    <p class="shortDiscription"><?=$place['ShortDescription']?></p>
                     <p><?=$place['Description']?></p>
                 </div>
 
@@ -86,36 +84,67 @@
                             <?php $cnt++; ?>
                     <?php endforeach; ?>
                 </div>
-
-                <div class="shedule">
-                    <?php 
-                    $shedule = json_decode($place['Schedule']);
-                    $num_day = 1;
-                    foreach($shedule as $day):
-                        $day_str = Int2Week($num_day);
-                        $num_day++;
-                        
-                    ?>
-                        <?=
-                            $day_str;
+                <div class="info"> 
+                    <div class="tags">
+                        <?php 
+                        $arr = json_decode($place["Tags"]);
+                        $arr_size = count($arr);
+                        $cnt = 1;
+                        foreach($arr as $tag): 
                         ?>
-                        :
-                        <?php if($day[0] == $day[1]): ?>
-                            круглосуточно
-                            
-                        <?php else: ?>
-                            <?=
-                                GetTime($day[0])
-                            ?>
-                            -
-                            <?=
-                                GetTime($day[1])
-                            ?>
-                        <?php endif;?>
-                    <br>
-                    <?php 
-                    endforeach;
-                    ?>
+                            <div class="tag">
+                                <?= $allTags[$tag-1]["Name"]; ?>
+                                <?= ($cnt < $arr_size)?'':' ' ?>
+                            </div>
+                                <?php $cnt++; ?>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <div class="shedule">
+
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    График
+                                </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        
+                                        <?php 
+                                            $shedule = json_decode($place['Schedule']);
+                                            $num_day = 1;
+                                            foreach($shedule as $day):
+                                                $day_str = Int2Week($num_day);
+                                                $num_day++;    
+                                        ?>
+                                        <?=
+                                            $day_str;
+                                        ?>
+                                        :
+                                        <?php if($day[0] == $day[1]): ?>
+                                            круглосуточно
+                                            
+                                        <?php else: ?>
+                                            <?=
+                                                GetTime($day[0])
+                                            ?>
+                                            -
+                                            <?=
+                                                GetTime($day[1])
+                                            ?>
+                                        <?php endif;?>
+                                        <br>
+                                        <?php 
+                                        endforeach;
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
 
                 <div class="btn-marks">
