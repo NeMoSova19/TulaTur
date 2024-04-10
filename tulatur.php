@@ -54,6 +54,10 @@
             return $data->fetch_assoc();
         }
 
+        public static function GetUser($login){
+            return TulaTur::GetUserRow($login);
+        }
+
         public static function UserUnvisitPlace($user, $id){
             $result = TulaTur::GetUserRow($user);
             $jsonVisited = json_decode($result["Visited"], false);
@@ -226,5 +230,34 @@
             if($max_percent < 80) return false;
         }
         return true;
+    }
+
+
+    function Int2Week($i){
+        switch ($i) {
+            case 1:
+                return "ПН";
+            case 2:
+                return "ВТ";
+            case 3:
+                return "СР";
+            case 4:
+                return "ЧТ";
+            case 5:
+                return "ПТ";
+            case 6:
+                return "СБ";
+            case 7:
+                return "ВС";
+        }
+        return "Это не день недели";
+    }
+
+    function GetTime($i){
+        $h = $i/10000;
+        $h_s = $h>=10?$h:'0'.$h;
+        $m = $i/100%100;
+        $m_s = $m>=10?$m:'0'.$m;
+        return $h_s.":".$m_s;
     }
 ?>

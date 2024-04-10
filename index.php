@@ -81,9 +81,11 @@
                         </li>
                         <li class="description_of_items"><?= $row["ShortDescription"]; ?></li>
                     </div>
-                    <button type="submit" class="text-field_input" id="button" value=<?= $row["Location"]; ?>>
-                        Построить маршрут
-                    </button>
+                    <div class="build-route">
+                        <button type="submit" class="text-field_input" id="button" value=<?= $row["Location"]; ?>>
+                            Построить маршрут
+                        </button>
+                    </div>
                 </div>
                 <?php endif; endif; endforeach; ?>
             </div>
