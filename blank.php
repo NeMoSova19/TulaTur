@@ -7,6 +7,7 @@
         TulaTur::Connect();
         $user = isset($_SESSION['login'])?TulaTur::GetUser($_SESSION["login"]):null;
         $place = TulaTur::GetPlace($id);
+        $comments = json_decode($place["Comments"],true);
         $allTags = TulaTur::GetAllTags();
         TulaTur::Disconnect();
         if(!isset($place) or empty($place)){
@@ -80,7 +81,7 @@
                     $cnt = 1;
                     foreach($arr as $tag): 
                     ?>
-                            <?= $allTags[$tag]["Name"]; ?>
+                            <?= $allTags[$tag-1]["Name"]; ?>
                             <?= ($cnt < $arr_size)?', ':' ' ?>
                             <?php $cnt++; ?>
                     <?php endforeach; ?>
@@ -141,7 +142,6 @@
                     </div>
                 </div>
                 
-
                 <div class="btn-action">
                     <button type="button" class="btn btn-outline-danger btn_add_to_visited" title="Добавить в избранное">
                         <!-- <img class="icon_add_to_visited" src="img/icon_suitcase.png" alt="Add to visited"> -->
@@ -169,9 +169,42 @@
                 <div class="map">
                     <div id="map" style="width: 100%; height: 100%;"></div>
                 </div>
+
                 <div class="comments">
-                    <?=$place['Comments']?>
+                    <div class="my-comment">
+                        Мой комментарий
+                        <form action="/comment.php?id=<?=$id?>" method="POST">
+                            <div class="comment-field">
+                                <input name="comment" placeholder='<?=isset($user)?"Введите свой комментарий":"Авторизуйтесь для написания комментария"?>' value='<?=isset($user)?(isset($comments[$user['Login']])?$comments[$user['Login']]:''):''?>' <?=isset($user)?(isset($comments[$user['Login']])?'disabled':''):'disabled';?>>
+                            </div>    
+                            <div class="comment-btns">
+                                <button>
+                                    Изменить
+                                </button>
+                                <button type="submit">
+                                    Отправить
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="other-comments-container">
+                        <?php 
+                        foreach($comments as $key => $comment):
+                            if(isset($user) and $key != $user['Login'] or !isset($user)):
+                        ?>
+                        <div class="other-comment">
+                            <div class="user-name-comment">
+                                <?=$key?>
+                            </div>
+                            <div class="comment-field">
+                                <?=$comment?>
+                            </div>  
+                        </div>
+                        <?php endif; endforeach; ?>
+                    </div>
                 </div>
+
             </section>
         </section>
 
