@@ -46,9 +46,9 @@
             <form action="tags.php" method="post">
                 <div class="search-container">
                     <div class="search-section">
-                        <input type="text" class="search-input" placeholder="Введите запрос...">
+                        <input type="text" class="search-input" name="search-input" placeholder="Введите запрос..." value='<?= isset($_SESSION['search-input'])?$_SESSION['search-input']:''; ?>'>
                         <button class="search-button"><p>Поиск<p></button>
-                        <button type="button" class="reset-tags search-button"><p>Сбросить теги</p></button>
+                        <button type="button" class="reset-tags search-button"><p>Сбросить</p></button>
                     </div>
                 </div>
                 <label>Выберите теги:</label><br>
@@ -69,21 +69,23 @@
             </div>
            
             <div class="places">
-                <?php foreach($result as $row):
+                <?php 
+                foreach($result as $row):
                     if(isset($_SESSION['tags']) and getIntersect($row['Tags'], $_SESSION['tags']) or !isset($_SESSION['tags'])):
+                        if(!isset($_SESSION['search-input']) or isset($_SESSION['search-input']) and ( empty($_SESSION['search-input']) or TwoStrings($_SESSION['search-input'], $row['Name']) or TwoStrings($_SESSION['search-input'], $row['ShortDescription']) or TwoStrings($_SESSION['search-input'], $row['Description']))):
                     ?>
                 <div class="place">
                     <div class="text">
                         <li class="names_of_items">
                             <a class="names_of_items" href="/blank.php?id=<?= $row["ID"];?>"> <?= $row["Name"]; ?></a>
                         </li>
-                        <li class="description_of_items"><?= $row["Description"]; ?></li>
+                        <li class="description_of_items"><?= $row["ShortDescription"]; ?></li>
                     </div>
                     <button type="submit" class="text-field_input" id="button" value=<?= $row["Location"]; ?>>
                         Построить маршрут
                     </button>
                 </div>
-                <?php endif; endforeach; ?>
+                <?php endif; endif; endforeach; ?>
             </div>
 
         </section>

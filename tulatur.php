@@ -208,4 +208,23 @@
     }
     return false;
 }
+
+    function TwoStrings($what_find, $where_find){
+        $what_find = mb_strtolower($what_find);
+        $where_find = mb_strtolower($where_find);
+
+        $arr_what = mb_split(' ', $what_find);
+        $arr_where = mb_split(' ', $where_find);
+
+        foreach($arr_what as $what){
+            $max_percent = 0;
+            foreach($arr_where as $where){
+                $local_percent = 0;
+                similar_text($what, $where, $local_percent);
+                $max_percent = max($max_percent, $local_percent);
+            }
+            if($max_percent < 80) return false;
+        }
+        return true;
+    }
 ?>

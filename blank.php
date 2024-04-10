@@ -69,7 +69,9 @@
                     <button class="btn btn_like" title="Нравится"><img class="icon_like" src="img/like_black.png" alt="Like"></button>
                     <button class="btn btn_dislike" title="Не нравится"><img class="icon_dislike" src="img/dislike_black.png" alt="Dislike"></button>
                     <button class="btn btn_add_to_visited" title="Добавить в избранное"><img class="icon_add_to_visited" src="img/icon_suitcase.png" alt="Add to visited"></button>
-                    <button class="btn btn_planet_link" title="Перейти на сайт"><img class="icon_planet_link" src="img/planet_link_black.png" alt="Visit web-site"></button>
+                    <a class="btn btn_planet_link" title="Перейти на сайт" href=<?=$place['Link']?> target="_blank" class="btn">
+                        <img class="icon_planet_link" src="img/planet_link_black.png" alt="Visit web-site">
+                    </a>
                 </div>
                 <div class="map">
                     <p>а я карта я карта</p>
