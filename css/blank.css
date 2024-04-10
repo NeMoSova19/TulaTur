@@ -94,14 +94,16 @@ a{
 }
 
 .tag{
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
+    background-color: #f1edd0d4;
     border-radius: 15px;
     padding: 5px;
     margin-right: 15px;
+    box-shadow: 1px 1px 10px 1px rgb(175 141 89 / 60%);
 }
 
 .tag:hover{
-    background-color: #cccccc6e;
+    background-color: rgb(175 141 89 / 30%);
 }
 
 .accordion-button:not(.collapsed){
