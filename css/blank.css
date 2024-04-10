@@ -119,7 +119,7 @@ a{
     justify-items: center;
     align-content: center;
     border: 1px solid rgb(54, 34, 15);
-    border-radius: 1em;
+    /* border-radius: 1em; */
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.7);
 }
 

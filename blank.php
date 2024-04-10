@@ -44,7 +44,9 @@
     <link rel="stylesheet" href="css/blank.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=f697c4a8-f8c8-478d-a897-005e1cc67a13&load=package.standard&lang=ru-RU" type="text/javascript"></script>
     <script src="js/header.js"></script>
+    <script src="js/map.js"></script>
 </head>
 <body>
     <?php include "header.php"; ?>
@@ -63,7 +65,7 @@
                     <p><?=$place['Description']?></p>
                 </div>
                 <div class="adress">
-                    <p><?=$place['Location']?></p>
+                    <p class="adress-map"><?=$place['Location']?></p>
                 </div>
                 <div class="buttons">
                     <button class="btn btn_like" title="Нравится"><img class="icon_like" src="img/like_black.png" alt="Like"></button>
@@ -73,9 +75,9 @@
                         <img class="icon_planet_link" src="img/planet_link_black.png" alt="Visit web-site">
                     </a>
                 </div>
+
                 <div class="map">
-                    <p>а я карта я карта</p>
-                    <p>я рюкзак я рюкзак</p>
+                    <div id="map" style="width: 100%; height: 100%;"></div>
                 </div>
                 <div class="comments">
                     <?=$place['Comments']?>
