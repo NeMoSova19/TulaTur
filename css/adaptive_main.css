@@ -29,7 +29,6 @@
     
     .main_app_background{
         width: 600px;
-        height: 1370px;
     }
     .map{
         width: 550px;
@@ -67,7 +66,6 @@
     
     .main_app_background{
         width: 500px;
-        height: 1600px;
     }
     .map{
         width: 450px;
@@ -114,7 +112,6 @@
     
     .main_app_background{
         width: 440px;
-        height: 1600px;
     }
     .place{
         margin: 0px 20px;
@@ -151,7 +148,6 @@
     
     .main_app_background{
         width: 350px;
-        height: 1500px;
     }
     .place{
         margin: 0px 5px;
@@ -168,8 +164,13 @@
     }
 }
 @media only screen and (max-width: 360px){
+    .tag-list{
+        font-size: 12px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+    
     .main_app_background{
         width: 345px;
-        height: 1500px;
     }
 }

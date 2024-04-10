@@ -47,6 +47,7 @@ a{
 }
 
 .main_app_background {
+    height: auto;
     border-radius: 50px;
     width: 920px;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.7);
