@@ -54,24 +54,11 @@
                         <button type="button" class="reset-tags search-button"><p>Сбросить</p></button>
                     </div>
                 </div>
-                <?php
-                $maxTagsToShow = 7;
-                $tagNames = '';
-                foreach ($allTags as $index => $tag) {
-                    if ($index < $maxTagsToShow) {
-                        $tagNames .= $tag['Name'] . ', ';
-                    } else {
-                        break;
-                    }
-                }
-                $tagNames = rtrim($tagNames, ', ');
-                $tagNames .= '...';
-                ?>
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <?= $tagNames; ?>
+                            Теги
                         </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -118,20 +105,6 @@
 
         </section>
     </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var collapseTwo = document.getElementById('collapseTwo');
-            var accordionButton = document.querySelector('#accordionExample .accordion-button');
-
-            collapseTwo.addEventListener('show.bs.collapse', function () {
-                accordionButton.textContent = 'Теги';
-            });
-
-            collapseTwo.addEventListener('hide.bs.collapse', function () {
-                accordionButton.textContent = '<?= $tagNames; ?>';
-            });
-        });
-    </script>
 
 </body>
 </html>
