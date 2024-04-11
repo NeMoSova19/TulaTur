@@ -163,14 +163,14 @@ a{
     align-content: center;
 }
 
-.comments{
+/* .comments{
     grid-column: 1/4;
     grid-row: 7;
     border: 1px solid rgb(54, 34, 15);
     border-radius: 1em;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.7);
     padding: 1em;
-}
+} */
 
 .btn-marks{
     grid-column: span 3;
@@ -230,4 +230,24 @@ a{
 
 .ymaps-2-1-79-gototech, .ymaps-2-1-79-gotoymaps__container{
     display: none !important;
+}
+
+.comments{
+    grid-row: 7;
+    grid-column: span 3;
+    /* border: 1px solid rgb(54, 34, 15); */
+    /* border-radius: 1em; */
+    /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.7); */
+    padding: 1em;
+}
+
+.other-comments-container{
+    grid-row: 8;
+    grid-column: span 3;
+}
+
+.toast{
+    display: block !important;
+    margin-bottom: 20px;
+    width: 100%;
 }

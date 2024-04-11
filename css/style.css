@@ -7,6 +7,10 @@ a{
     text-decoration: none;
 }
 
+p{
+    margin-bottom: 0;
+}
+
 .section_main{
     position: relative;
     z-index: 1;
@@ -290,3 +294,30 @@ a{
     background-color: #dc3545;
     margin-left: 5px;
 } */
+
+.accordion{
+    margin: 0 90px;
+}
+
+.accordion-button:not(.collapsed){
+    color: #000;
+    background-color: #efead2;
+    box-shadow: inset 0 calc(-1* var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+
+.accordion-button:focus{
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 252, 0.25);
+}
+
+.accordion-button{
+    font-size: 18px;
+}
+
+.accordion-body{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+input[type=checkbox]{
+    accent-color: #a57a7a;
+}

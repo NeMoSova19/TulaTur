@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/header.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/adaptive.css" type="text/css">
@@ -25,6 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
     <script src="js/script.js"></script>
     <script src="js/header.js"></script>
     <script src="https://api-maps.yandex.ru/v3/?apikey=aaa5550c-e388-41b3-9114-2471118f4cdd&lang=ru_RU"></script>
@@ -52,14 +54,37 @@
                         <button type="button" class="reset-tags search-button"><p>Сбросить</p></button>
                     </div>
                 </div>
-                <label>Выберите теги:</label><br>
-                <div class="tag-list">
-                    <?php foreach($allTags as $tag): ?>
-                        <div>
-                            <input type="checkbox" id=<?= $tag['Name']; ?> name="tags[]" value=<?= $tag['ID']; ?> <?= isset($_SESSION['tags'])?(in_array($tag['ID'], $_SESSION['tags'])?'checked':''):'' ?> >
-                            <label for=<?= $tag['Name']; ?>><?= $tag['Name']; ?></label><br>
+                <?php
+                $maxTagsToShow = 7;
+                $tagNames = '';
+                foreach ($allTags as $index => $tag) {
+                    if ($index < $maxTagsToShow) {
+                        $tagNames .= $tag['Name'] . ', ';
+                    } else {
+                        break;
+                    }
+                }
+                $tagNames = rtrim($tagNames, ', ');
+                $tagNames .= '...';
+                ?>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <?= $tagNames; ?>
+                        </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <?php foreach($allTags as $tag): ?>
+                            <div>
+                                <input type="checkbox" id=<?= $tag['Name']; ?> name="tags[]" value=<?= $tag['ID']; ?> <?= isset($_SESSION['tags'])?(in_array($tag['ID'], $_SESSION['tags'])?'checked':''):'' ?> >
+                                <label for=<?= $tag['Name']; ?>><?= $tag['Name']; ?></label><br>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                        </div>
                     </div>
-                <?php endforeach; ?>
                 </div>
             </form>
             
@@ -93,5 +118,20 @@
 
         </section>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var collapseTwo = document.getElementById('collapseTwo');
+            var accordionButton = document.querySelector('#accordionExample .accordion-button');
+
+            collapseTwo.addEventListener('show.bs.collapse', function () {
+                accordionButton.textContent = 'Теги';
+            });
+
+            collapseTwo.addEventListener('hide.bs.collapse', function () {
+                accordionButton.textContent = '<?= $tagNames; ?>';
+            });
+        });
+    </script>
+
 </body>
 </html>
