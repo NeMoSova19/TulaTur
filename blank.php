@@ -197,34 +197,40 @@
                 </div>
 
                 <div class="comments">
-                    <div class="my-comment">
-                        Мой комментарий
-                        <form action="/php_scripts/comment.php?id=<?=$id?>" method="POST">
-                            <div class="comment-field">
-                                <input name="comment" placeholder='<?=isset($user)?"Введите свой комментарий":"Авторизуйтесь для написания комментария"?>' value='<?=isset($user)?(isset($comments[$user['Login']])?$comments[$user['Login']]:''):''?>' <?=isset($user)?'':'disabled';?>>
-                            </div>    
-                            <button <?=isset($user)?'':'disabled';?>>
-                                <?=isset($user)?(isset($comments[$user['Login']])?'Изменить':'Отправить'):'Отправить';?>
-                            </button>
-                        </form>
-                    </div>
-                    </div>
-                    <hr>
+                    <form action="/php_scripts/comment.php?id=<?=$id?>" method="POST">
+                        <div class="toast">
+                            <div class="mb-3">
+                                <!-- <div class="toast-header"> -->
+                                    <label for="comment-input" class="form-label">Оставить комментарий</label>
+                                <!-- </div> -->
+                                <div class="comment-field comment-body">
+                                    <input name="comment" class="form-control" id="comment-input" placeholder='<?=isset($user)?"Введите свой комментарий":"Авторизуйтесь для написания комментария"?>' value='<?=isset($user)?(isset($comments[$user['Login']])?$comments[$user['Login']]:''):''?>' <?=isset($user)?'':'disabled';?>>
+                                </div>
+                                <button <?=isset($user)?'':'disabled';?> class="btn btn-outline-dark btn-comment">
+                                    <?=isset($user)?(isset($comments[$user['Login']])?'Изменить':'Отправить'):'Отправить';?>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
                     <div class="other-comments-container">
                         <?php 
-                        foreach($comments as $key => $comment):
-                            if(isset($user) and $key != $user['Login'] or !isset($user)):
+                            foreach($comments as $key => $comment):
+                                if(isset($user) and $key != $user['Login'] or !isset($user)):
                         ?>
-                        <div class="other-comment">
-                            <div class="user-name-comment">
-                                <?=$key?>
+                        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <strong class="me-auto"><?=$key?></strong>
+                                <small>11.04.2024</small>
                             </div>
-                            <div class="comment-field">
+                            <div class="toast-body">
                                 <?=$comment?>
-                            </div>  
+                            </div>
                         </div>
                         <?php endif; endforeach; ?>
                     </div>
+
+                    
                 </div>
 
             </section>

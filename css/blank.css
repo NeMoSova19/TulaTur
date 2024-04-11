@@ -235,10 +235,7 @@ a{
 .comments{
     grid-row: 7;
     grid-column: span 3;
-    /* border: 1px solid rgb(54, 34, 15); */
-    /* border-radius: 1em; */
-    /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.7); */
-    padding: 1em;
+    padding-top: 70px;
 }
 
 .other-comments-container{
@@ -250,4 +247,33 @@ a{
     display: block !important;
     margin-bottom: 20px;
     width: 100%;
+}
+
+.form-label{
+    padding-left: 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.btn-comment{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+    background: #fff;
+    color: #000;
+}
+
+.btn-comment, .comment-body{
+    margin-left: 20px;
+}
+
+.comment-body{
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.form-control:focus {
+    border: var(--bs-border-width) solid var(--bs-border-color);;
+    box-shadow: 0 0 0 0.2rem rgb(251 250 226);
 }
