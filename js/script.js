@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
     resetTagsButton.addEventListener('click', function(){
-        window.location.href = 'reset-tags.php'; 
+        window.location.href = '/php_scripts/reset-tags.php'; 
         return;
     });
 
