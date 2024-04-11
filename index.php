@@ -44,7 +44,7 @@
         </section>
         <section class="section_background"></section>
         <section class="main_app_background">
-            <form action="tags.php" method="post">
+            <form action="/php_scripts/tags.php" method="post">
                 <div class="search-container">
                     <div class="search-section">
                         <input type="text" class="search-input" name="search-input" placeholder="Введите запрос..." value='<?= isset($_SESSION['search-input'])?$_SESSION['search-input']:''; ?>'>

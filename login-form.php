@@ -19,7 +19,7 @@
 </head>
 <body class="background-login">
     <div class="container-login">
-        <form class="form-login" action="login.php", method="POST">
+        <form class="form-login" action="/php_scripts/login.php", method="POST">
             <p сlass="authorization-title">Войти</p>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Логин</label>

@@ -17,7 +17,7 @@
 </head>
 <body class="background-login background-registration">
     <div class="container-login">
-        <form class="form-login", action="registration.php", method="POST">
+        <form class="form-login", action="/php_scripts/registration.php", method="POST">
             <p сlass="authorization-title">Регистрация</p>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Логин</label>

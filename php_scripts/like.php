@@ -1,13 +1,14 @@
 <?php
-include("tulatur.php");
+include("../tulatur.php");
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    TulaTur::Connect();
-
+    
     $user = $_SESSION['login'];
     $id = $_GET['id'];
-
+    
+    TulaTur::Connect();
+    
     $result = TulaTur::UserLikePlace($user, $id);
     if($result == false){
         TulaTur::UserClearPlaceRating($user, $id);
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     TulaTur::Disconnect();
 
-    header('Location: '.GetPrevPageOr('index.php'));
+    header('Location: ../'.GetPrevPageOr('index.php'));
     exit();
 }
 ?>

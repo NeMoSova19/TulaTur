@@ -12,5 +12,5 @@ session_start();
 
     unset($_SESSION['search-input']);
 
-    header('Location: index.php');
+    header('Location: ../index.php');
 ?>

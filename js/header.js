@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = 'login-form.php'; 
             return;
         }
-        window.location.href = 'logout.php'; 
+        window.location.href = '/php_scripts/logout.php'; 
      
     });
 });
