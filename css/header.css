@@ -93,3 +93,7 @@
     cursor: pointer;
     align-self: center;
 }
+
+.header-form-login{
+    display: contents;
+}

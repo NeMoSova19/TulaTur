@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     switch ($result) {
         case 'OK':
             $_SESSION['login'] = $_POST['login'];
-            header('Location: index.php');
+            header('Location: '.GetPrevPageOr('index.php'));
             break;
             
         case 'User not found':

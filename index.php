@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION['prev_page'] = "index.php";
 
     include("tulatur.php");
     TulaTur::Connect();

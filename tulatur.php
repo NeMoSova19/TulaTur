@@ -168,6 +168,23 @@
             return TulaTur::Request("SELECT * FROM Tags")->fetch_all(MYSQLI_ASSOC);
         }
 
+        public static function IsUserLikePlace($user, $id){
+            $result = TulaTur::GetUserRow($user);
+            $jsonLike = json_decode($result["Ulike"], false);
+            if(in_array($id, $jsonLike)){
+                return true;
+            }
+            return false;
+        }
+
+        public static function IsUserDislikePlace($user, $id){
+            $result = TulaTur::GetUserRow($user);
+            $jsonDislike = json_decode($result["Udislike"], false);
+            if(in_array($id, $jsonDislike)){
+                return true;
+            }
+            return false;
+        }
 
         //////////////////////////////////////////////////////////////////
 
@@ -259,5 +276,12 @@
         $m = $i/100%100;
         $m_s = $m>=10?$m:'0'.$m;
         return $h_s.":".$m_s;
+    }
+
+    function GetPrevPageOr($pageor){
+        if(isset($_SESSION['prev_page'])){
+            return $_SESSION['prev_page'];
+        }
+        return $pageor;
     }
 ?>

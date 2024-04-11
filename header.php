@@ -1,8 +1,8 @@
 <header class="header">
     <nav class="nav_menu">
-        <a href="/index.php" class="logo_name first">Тула</a>
-        <div class="logo_block"><a href="/index.php" class="logo"><img class="logo_img" src="img/logo.png" alt="Logo"></a></div>
-        <a href="/index.php" class="logo_name second">Тур</a>
+        <a href="/reset-tags.php" class="logo_name first">Тула</a>
+        <div class="logo_block"><a href="/reset-tags.php" class="logo"><img class="logo_img" src="img/logo.png" alt="Logo"></a></div>
+        <a href="/reset-tags.php" class="logo_name second">Тур</a>
         <button class="btn_icon_heart"><img class="nav-icon_heart" src="img/icon_heart.png" alt=""> <span class="nav-icon_heart-text">Избранное</span></button>
         <button class="btn_icon_suitcase"><img class="nav-icon_suitcase" src="img/icon_suitcase.png" alt=""> <span class="nav-icon_suitcase-text">Мои поездки</span></button>
         
