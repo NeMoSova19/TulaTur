@@ -5,7 +5,7 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $user = $_SESSION['login'];
-    $id = $_GET['id'];
+    $id = $_POST['id'];
     
     TulaTur::Connect();
     
@@ -13,10 +13,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($result == false){
         TulaTur::UserClearPlaceRating($user, $id);
     }
-    
+    $place = TulaTur::GetPlace($id);
     TulaTur::Disconnect();
 
-    header('Location: ../'.GetPrevPageOr('index.php'));
-    exit();
+    $out = array(
+        'active' => $result,
+        'like' => $place['Ulike'],
+        'dislike' => $place['Udislike'],
+    );
+
+    // Устанавливаем заголовок ответа в формате json
+    header('Content-Type: text/json; charset=utf-8');
+    
+    // Кодируем данные в формат json и отправляем
+    echo json_encode($out);
 }
 ?>
