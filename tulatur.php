@@ -8,6 +8,7 @@
             $password = "Mysql123";
             $base = "k90653re_bd";  
             TulaTur::$connection = mysqli_connect($servername,$username,$password, $base);
+            date_default_timezone_set('Europe/Moscow');
             
             if(TulaTur::$connection) {
                 return true;
@@ -186,6 +187,53 @@
             return false;
         }
 
+        public static function GetUserFavorites($user){
+            return json_decode(TulaTur::Request("SELECT Favorites FROM Users WHERE Login='$user'")->fetch_all(MYSQLI_ASSOC)[0]['Favorites']);
+        }
+
+        public static function AddFavorite($user, $id){
+            $fav = TulaTur::GetUserFavorites($user);
+            if(in_array($id, $fav)) return true;
+
+            array_push($fav, $id);
+            $fav_json = json_encode($fav);
+            TulaTur::Request("UPDATE Users SET Favorites = '$fav_json' WHERE Login='$user'");
+            return false;
+        }
+
+        public static function RemoveFavorite($user, $id){
+            $fav = TulaTur::GetUserFavorites($user);
+            if(!in_array($id, $fav)) return false;
+
+            unset($fav[array_search($id, $fav)]);
+            $fav_json = json_encode($fav);
+            TulaTur::Request("UPDATE Users SET Favorites = '$fav_json' WHERE Login='$user'");
+            return false;
+        }
+
+        public static function GetUserTrips($user){
+            return json_decode(TulaTur::Request("SELECT MyTrips FROM Users WHERE Login='$user'")->fetch_all(MYSQLI_ASSOC)[0]['MyTrips']);
+        }
+
+        public static function AddTrip($user, $id){
+            $trip = TulaTur::GetUserTrips($user);
+            if(in_array($id, $trip)) return true;
+
+            array_push($trip, $id);
+            $trip_json = json_encode($trip);
+            TulaTur::Request("UPDATE Users SET MyTrips = '$trip_json' WHERE Login='$user'");
+            return false;
+        }
+
+        public static function RemoveTrip($user, $id){
+            $trip = TulaTur::GetUserTrips($user);
+            if(!in_array($id, $trip)) return false;
+
+            unset($trip[array_search($id, $trip)]);
+            $trip_json = json_encode($trip);
+            TulaTur::Request("UPDATE Users SET MyTrips = '$trip_json' WHERE Login='$user'");
+            return false;
+        }
         //////////////////////////////////////////////////////////////////
 
         private static function Request($request_string){
@@ -202,7 +250,7 @@
 
         private static function RegisterNewUser($user, $password){
             $hash = password_hash($password, PASSWORD_DEFAULT);
-            TulaTur::Request(sprintf("INSERT INTO Users VALUES ('%s', '%s', '[]', '[]', '[]')", $user, $hash));
+            TulaTur::Request("INSERT INTO Users VALUES ('$user', '$hash', '[]', '[]', '[]', '[]')");
         }
 
         private static function IsNameTaken($name) {
@@ -212,6 +260,19 @@
         private static function TestPassword($password){
             $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/';
             return (bool)preg_match($pattern, $password);
+        }
+
+        public static function WriteComment($user, $place, $comment){
+            $date = date('Y-m-d');
+
+            $request_string = "DELETE FROM Comments WHERE (Place, User) = ($place, '$user'); 
+            INSERT INTO Comments VALUES ($place, '$user', '$date', '$comment')";
+
+            $request_string1 = "UPDATE Comments Set Comment='$comment' where (Place, User) = ($place, '$user')
+            If(@@ROWCOUNT=0)
+            INSERT into Comments (Place, User, Date, Comment) Values ($place, '$user', '2024-04-23', '$comment')";
+
+            return TulaTur::Request($request_string1);
         }
     }
 

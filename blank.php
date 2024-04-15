@@ -11,6 +11,8 @@
         $place = TulaTur::GetPlace($id);
         $comments = json_decode($place["Comments"],true);
         $allTags = TulaTur::GetAllTags();
+        $isFavorite = (bool)in_array($id, TulaTur::GetUserFavorites($_SESSION["login"]));
+        $isTrip = (bool)in_array($id, TulaTur::GetUserTrips($_SESSION["login"]));
         if(isset($_SESSION['login'])){
             $isLike = TulaTur::IsUserLikePlace($_SESSION['login'], $id);
             $isDisike = TulaTur::IsUserDislikePlace($_SESSION['login'], $id);
@@ -61,6 +63,7 @@
     <script src="js/header.js"></script>
     <script src="js/map.js"></script>
     <script src="js/like_dislike.js"></script>
+    <script src="js/favorites.js"></script>
 </head>
 <body>
     <?php include "header.php"; ?>
@@ -123,8 +126,9 @@
                                         ?>
                                         :
                                         <?php if($day[0] == $day[1]): ?>
+                                            не работает
+                                        <?php elseif($day[0]/10000 == 0 and $day[1]/10000 == 24): ?>
                                             круглосуточно
-                                            
                                         <?php else: ?>
                                             <?=
                                                 GetTime($day[0])
@@ -171,13 +175,13 @@
                 </div>
                 
                 <div class="btn-action">
-                    <button type="button" class="btn btn-outline-danger btn_add_to_visited" title="Добавить в избранное">
+                    <button type="button" class="btn btn-outline-danger btn_add_to_visited js_favorites" title="Добавить в избранное" <?=isset($user)?:'disabled'; ?> data-id=<?=$id?> style="background-color: <?=$isFavorite?'#dc3545':'transparent'?>; color: <?=$isFavorite?'#ffffff':'#dc3545'?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar-heart" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5ZM1 14V4h14v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Zm7-6.507c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"></path>
                         </svg>
                         Хочу посетить
                     </button>
-                    <button type="button" class="btn btn-outline-success btn_add_to_visited" title="Посетил">
+                    <button type="button" class="btn btn-outline-success btn_add_to_visited js_trips" title="Посетил" <?=isset($user)?:'disabled'; ?> data-id=<?=$id?> style="background-color: <?=$isTrip?'#198754':'transparent'?>; color: <?=$isTrip?'#ffffff':'#198754'?>" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
                             <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
@@ -234,21 +238,5 @@
 
             </section>
         </section>
-
-    <!-- <script>
-        const buttons = document.querySelectorAll('.btn-mark');
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(btn => btn.classList.remove('active', 'text-success', 'text-danger'));
-                button.classList.add('active');
-                if (button.classList.contains('btn_like')) {
-                    button.classList.add('text-success');
-                } else if (button.classList.contains('btn_dislike')) {
-                    button.classList.add('text-danger');
-                }
-            });
-    });
-
-    </script> -->
 </body>
 </html>

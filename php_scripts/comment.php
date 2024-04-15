@@ -11,6 +11,7 @@ session_start();
     }
 
     TulaTur::Connect();
+    TulaTur::WriteComment($_SESSION['login'], $id, $comment);
     TulaTur::UserWriteComment($_SESSION['login'], $id, $comment);
     TulaTur::Disconnect();
     

@@ -8,27 +8,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     
     TulaTur::Connect();
-
     $result = TulaTur::VerifyUser($username, $password);
-    
     TulaTur::Disconnect();
+
+    $error;
     
     switch ($result) {
         case 'OK':
             $_SESSION['login'] = $_POST['login'];
-            header('Location: ../'.GetPrevPageOr('index.php'));
-            exit();
+            $error = 'OK';
+            break;
             
         case 'User not found':
-            $_SESSION['error'] = "Пользователь не найден";
-            header('Location: ../login-form.php');
-            exit(); 
+            $error = "UserNotFound";
+            break;
 
         case 'Password incorrect':
-            $_SESSION['error'] = "Неверный пароль";
-            header('Location: ../login-form.php');
-            exit(); 
+            $error = "PasswordIncorrect";
+            break;
     }
 
+    $out = array(
+        'error' => $error,
+    );
+    
+    // Устанавливаем заголовок ответа в формате json
+    header('Content-Type: text/json; charset=utf-8');
+    
+    // Кодируем данные в формат json и отправляем
+    echo json_encode($out);
 }
 ?>

@@ -25,8 +25,8 @@ ymaps.ready(init);
                 currentPlace = res.geoObjects.get(0).properties.get('text')
                 console.log(currentPlace)
 
-                toPlace = document.querySelector(".adress-map").innerHTML;
-                console.log(toPlace);
+                toPlace = "Тула, " + document.querySelector(".adress-map").innerHTML;
+                console.log("ToPlace: " + toPlace);
 
                 control.routePanel.state.set({
                     type: 'masstransit',
