@@ -48,15 +48,25 @@ document.addEventListener("DOMContentLoaded", function() {
         dayTourUnder.classList.remove('day_tour');
         console.log(nightTourUnder);
         bodyBlock.style.backgroundColor = "#0b0114";
-        headerBlock.style.backgroundColor = "#fff";
-
+        headerBlock.style.backgroundColor = "#ffffffdb";
+        document.querySelector(".accordion-button").classList.add('accordion-button-night');
+        document.querySelector(".search-section").classList.add('search-section-night');
+        document.querySelector(".accordion-body").classList.add('accordion-body-night');
+        var btns = document.querySelectorAll(".text-field_input");
+        btns.forEach(function(element) {
+            element.classList.add('text-field_input-night');
+        });
+        var headerBtns = document.querySelectorAll(".btn-header");
+        headerBtns.forEach(function(element) {
+            element.style.backgroundColor = "rgb(220 219 222)";
+        });
+        document.querySelector(".switcher_logo-day").style.display = "none";
+        document.querySelector(".switcher_logo-night").style.display = "block";
     });
 
     dayButton.addEventListener("click", function() {
-        // location.reload();
         imgDay.style.display = "block";
         imgNight.style.display = "none";
-        // formNight.classList.add('night_type');
         formNight.classList.remove('night_type');
 
         textNight.forEach(element => {
@@ -79,6 +89,19 @@ document.addEventListener("DOMContentLoaded", function() {
         bodyBlock.style.backgroundColor = "#fbfae2";
 
         headerBlock.style.backgroundColor = "#fff";
+        document.querySelector(".accordion-button").classList.remove('accordion-button-night');
+        document.querySelector(".search-section").classList.remove('search-section-night');
+        document.querySelector(".accordion-body").classList.remove('accordion-body-night');
+        var btns = document.querySelectorAll(".text-field_input");
+        btns.forEach(function(element) {
+            element.classList.remove('text-field_input-night');
+        });
+        var headerBtns = document.querySelectorAll(".btn-header");
+        headerBtns.forEach(function(element) {
+            element.style.backgroundColor = "#fff";
+        });
+        document.querySelector(".switcher_logo-day").style.display = "block";
+        document.querySelector(".switcher_logo-night").style.display = "none";
 
     });
     

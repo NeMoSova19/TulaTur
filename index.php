@@ -77,7 +77,8 @@
             
             <div class="switcher">
                 <button class="day-type"><h2 class="day_tour_text day-under">Дневной тур</h2></button>
-                <img class="switcher_logo" src="img/free-icon-day-and-night-8495814.png" alt="переключатель" a="#">
+                <img class="switcher_logo switcher_logo-day" src="img/free-icon-day-and-night-8495814.png" alt="переключатель">
+                <img class="switcher_logo switcher_logo-night" src="img/night.png" alt="переключатель" style="display:none;">
                 <button class="night-type"><h2 class="day_tour_text night_under">Ночной тур</h2></button>
             </div>
            
@@ -95,9 +96,9 @@
                         <li class="description_of_items"><?= $row["ShortDescription"]; ?></li>
                     </div>
                     <div class="build-route">
-                        <button type="submit" class="text-field_input" id="button" value=<?= $row["Location"]; ?>>
+                        <a href="/blank.php?id=<?= $row["ID"];?>" class="text-field_input" id="button" value=<?= $row["Location"]; ?>>
                             Построить маршрут
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <?php endif; endif; endforeach; ?>
