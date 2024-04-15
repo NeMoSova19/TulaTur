@@ -11,8 +11,8 @@
         $place = TulaTur::GetPlace($id);
         $comments = json_decode($place["Comments"],true);
         $allTags = TulaTur::GetAllTags();
-        $isFavorite = (bool)in_array($id, TulaTur::GetUserFavorites($_SESSION["login"]));
-        $isTrip = (bool)in_array($id, TulaTur::GetUserTrips($_SESSION["login"]));
+        $isFavorite = isset($_SESSION['login'])?(bool)in_array($id, TulaTur::GetUserFavorites($_SESSION["login"])):false;
+        $isTrip = isset($_SESSION['login'])?(bool)in_array($id, TulaTur::GetUserTrips($_SESSION["login"])):false;
         if(isset($_SESSION['login'])){
             $isLike = TulaTur::IsUserLikePlace($_SESSION['login'], $id);
             $isDisike = TulaTur::IsUserDislikePlace($_SESSION['login'], $id);
