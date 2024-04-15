@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", function() {
         headerBtns.forEach(function(element) {
             element.style.backgroundColor = "rgb(220 219 222)";
         });
+        document.querySelector(".switcher_logo-day").style.display = "none";
+        document.querySelector(".switcher_logo-night").style.display = "block";
     });
 
     dayButton.addEventListener("click", function() {
@@ -98,6 +100,8 @@ document.addEventListener("DOMContentLoaded", function() {
         headerBtns.forEach(function(element) {
             element.style.backgroundColor = "#fff";
         });
+        document.querySelector(".switcher_logo-day").style.display = "block";
+        document.querySelector(".switcher_logo-night").style.display = "none";
 
     });
     
