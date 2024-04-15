@@ -77,6 +77,10 @@ p{
     margin: 0 20px 0 20px;
 }
 
+.places{
+    margin-top: 20px;
+}
+
 .day_tour{
     /* text-decoration-line: underline; */
     border-bottom: 3px #000 solid;
@@ -137,6 +141,8 @@ p{
 
 .text-field_input {
     border-radius: 20px;
+    border: 1px solid #000;
+    text-align: center;
     width: 258px;
     height: 51px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
@@ -153,6 +159,10 @@ p{
 }
 .text-field_input:hover {
     background-color: lightgray;
+}
+
+.text-field_input-night{
+    background-color: #ffffffdb;
 }
 
 .map{
@@ -191,7 +201,7 @@ p{
 .place{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 70px);
+    /* grid-template-rows: repeat(2, 70px); */
     justify-content: space-between;
     margin: 0 90px;
 }
@@ -320,4 +330,30 @@ p{
 
 input[type=checkbox]{
     accent-color: #a57a7a;
+}
+
+.accordion-button-night{
+    background-color: #52525e;
+    color: #fff;
+}
+
+.search-section-night{
+    background-color: #52525e;
+}
+
+.search-section-night input{
+    background-color: #ffffffdb;
+}
+
+.search-section-night button{
+    background-color: #ffffffdb;
+}
+
+.accordion-body-night{
+    background-color: #d6d6d8;
+}
+
+.accordion-button-night:not(.collapsed){
+    background-color: #52525e;
+    color: #fff;
 }

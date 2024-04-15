@@ -95,9 +95,9 @@
                         <li class="description_of_items"><?= $row["ShortDescription"]; ?></li>
                     </div>
                     <div class="build-route">
-                        <button type="submit" class="text-field_input" id="button" value=<?= $row["Location"]; ?>>
+                        <a href="/blank.php?id=<?= $row["ID"];?>" class="text-field_input" id="button" value=<?= $row["Location"]; ?>>
                             Построить маршрут
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <?php endif; endif; endforeach; ?>

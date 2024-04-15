@@ -3,10 +3,10 @@
         <a href="/php_scripts/reset-tags.php" class="logo_name first">Тула</a>
         <div class="logo_block"><a href="/php_scripts/reset-tags.php" class="logo"><img class="logo_img" src="img/logo.png" alt="Logo"></a></div>
         <a href="/php_scripts/reset-tags.php" class="logo_name second">Тур</a>
-        <button class="btn_icon_heart"><img class="nav-icon_heart" src="img/icon_heart.png" alt=""> <span class="nav-icon_heart-text">Избранное</span></button>
-        <button class="btn_icon_suitcase"><img class="nav-icon_suitcase" src="img/icon_suitcase.png" alt=""> <span class="nav-icon_suitcase-text">Мои поездки</span></button>
+        <button class="btn_icon_heart btn-header"><img class="nav-icon_heart" src="img/icon_heart.png" alt=""> <span class="nav-icon_heart-text">Избранное</span></button>
+        <button class="btn_icon_suitcase btn-header"><img class="nav-icon_suitcase" src="img/icon_suitcase.png" alt=""> <span class="nav-icon_suitcase-text">Мои поездки</span></button>
         
-        <button class="auth" id="loginButton">
+        <button class="auth btn-header" id="loginButton">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right auth_logo" viewBox="0 0 16 16"> 
             <?php if(isset($_SESSION['login'])): ?>
                 <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/> 
