@@ -9,7 +9,8 @@
         TulaTur::Connect();
         $user = isset($_SESSION['login'])?TulaTur::GetUser($_SESSION["login"]):null;
         $place = TulaTur::GetPlace($id);
-        $comments = json_decode($place["Comments"],true);
+        $comments = TulaTur::GetCommentsForPlace($id);
+        $userComment = isset($_SESSION['login'])?GetMessageFromList($comments, $_SESSION['login']):null;
         $allTags = TulaTur::GetAllTags();
         $isFavorite = isset($_SESSION['login'])?(bool)in_array($id, TulaTur::GetUserFavorites($_SESSION["login"])):false;
         $isTrip = isset($_SESSION['login'])?(bool)in_array($id, TulaTur::GetUserTrips($_SESSION["login"])):false;
@@ -64,6 +65,7 @@
     <script src="js/map.js"></script>
     <script src="js/like_dislike.js"></script>
     <script src="js/favorites.js"></script>
+    <script src="js/comments.js"></script>
 </head>
 <body>
     <?php include "header.php"; ?>
@@ -200,17 +202,17 @@
                 </div>
 
                 <div class="comments">
-                    <form action="/php_scripts/comment.php?id=<?=$id?>" method="POST">
+                    <form id="form-send-message" data-id=<?=$id?>>
                         <div class="toast">
                             <div class="mb-3">
                                 <!-- <div class="toast-header"> -->
                                     <label for="comment-input" class="form-label">Оставить комментарий</label>
                                 <!-- </div> -->
                                 <div class="comment-field comment-body">
-                                    <input name="comment" class="form-control" id="comment-input" placeholder='<?=isset($user)?"Введите свой комментарий":"Авторизуйтесь для написания комментария"?>' value='<?=isset($user)?(isset($comments[$user['Login']])?$comments[$user['Login']]:''):''?>' <?=isset($user)?'':'disabled';?>>
+                                    <input name="comment" class="form-control" id="comment-input" placeholder='<?=isset($user)?"Введите свой комментарий":"Авторизуйтесь для написания комментария"?>' value='<?=isset($userComment)?$userComment['Comment']:''?>' <?=isset($user)?'':'disabled';?>>
                                 </div>
                                 <button <?=isset($user)?'':'disabled';?> class="btn btn-outline-dark btn-comment">
-                                    <?=isset($user)?(isset($comments[$user['Login']])?'Изменить':'Отправить'):'Отправить';?>
+                                    <?=isset($userComment)?'Изменить':'Отправить';?>
                                 </button>
                             </div>
                         </div>
@@ -218,16 +220,16 @@
 
                     <div class="other-comments-container">
                         <?php 
-                            foreach($comments as $key => $comment):
-                                if(isset($user) and $key != $user['Login'] or !isset($user)):
+                            foreach($comments as $comment):
+                                if(isset($user) and $comment['User'] != $user['Login'] or !isset($user)):
                         ?>
                         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
-                                <strong class="me-auto"><?=$key?></strong>
-                                <small>11.04.2024</small>
+                                <strong class="me-auto"><?=$comment['User']?></strong>
+                                <small><?=$comment['Date']?></small>
                             </div>
                             <div class="toast-body">
-                                <?=$comment?>
+                                <?=$comment['Comment']?>
                             </div>
                         </div>
                         <?php endif; endforeach; ?>

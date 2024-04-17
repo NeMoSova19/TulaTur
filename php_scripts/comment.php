@@ -2,19 +2,28 @@
 include("../tulatur.php");
 session_start();
 
-    $id = $_GET['id'];
+    $id = $_POST['id'];
     $comment = $_POST['comment'];
 
-    if(empty($comment)) {
-        header('Location: ../blank.php?id='.$id);
-        exit();
-    }
+    $error;
 
-    TulaTur::Connect();
-    TulaTur::WriteComment($_SESSION['login'], $id, $comment);
-    TulaTur::UserWriteComment($_SESSION['login'], $id, $comment);
-    TulaTur::Disconnect();
+    if(!empty($comment)) {        
+        TulaTur::Connect();
+        TulaTur::WriteComment($_SESSION['login'], $id, $comment);
+        TulaTur::Disconnect();
+        $error = 'OK';
+    }
+    else{
+        $error = 'NOK';
+    }
     
-    header('Location: ../blank.php?id='.$id);
-    exit();
+    $out = array(
+        'error' => $error,
+    );
+    
+    // Устанавливаем заголовок ответа в формате json
+    header('Content-Type: text/json; charset=utf-8');
+    
+    // Кодируем данные в формат json и отправляем
+    echo json_encode($out);
 ?>

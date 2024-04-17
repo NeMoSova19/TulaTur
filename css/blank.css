@@ -210,6 +210,16 @@ a{
     border-color:transparent;
 }
 
+/* .btn-outline-danger:hover {
+    background-color: var(--bs-red); 
+    color:#000;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--bs-green); 
+    color:#000;
+} */
+
 .bi-globe:hover{
     fill: var(--bs-primary); 
 }

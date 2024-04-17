@@ -11,12 +11,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $error;
     
-    if($password1 == $password2){
+    if(!TulaTur::TestLogin($username)){ // исправить
+        $error = "InvalidUser";
+    }
+    elseif($password1 != $password2){
+        $error = "NotEqualPasswords";
+    }
+    else{
+
         TulaTur::Connect();
         $result = TulaTur::TryRegisterNewUser($username, $password1);
         TulaTur::Disconnect();
-
-
+        
+        
         switch ($result) {
             case 'OK':
                 $_SESSION['login'] = $_POST['login'];
@@ -26,16 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             case 'User already exists':
                 $error = "UserAlreadyExists";
                 break;
-
+                
             case 'Invalid password':
                 $error = "InvalidPassword";
                 break;
         }
     }
-    else{
-        $error = "NotEqualPasswords";
-    }
-    
+                    
     $out = array(
         'error' => $error,
     );

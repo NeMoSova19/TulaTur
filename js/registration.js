@@ -34,7 +34,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     
                 case 'InvalidPassword':
                     var err_msg = "<div class='alert alert-danger' role='alert'>";
-                    err_msg += "Пароль должен быть не менее 8 символов <br>Пароль должен содержать не менее 1 прописной буквы<br>Пароль должен содержать не менее 1 цифры";
+                    err_msg += "Пароль должен сожержать:<lu><li>Не менее 1 прописной буквы</li><li>Не менее 1 цифры</li></lu>Длина от 8 до 32 символов";
+                    err_msg += "</div>";
+                    $(error_form).html(err_msg);
+                    break;
+
+                case 'InvalidUser':
+                    var err_msg = "<div class='alert alert-danger' role='alert'>";
+                    err_msg += "Имя пользователя может содержать:<lu><li>Буквы из кириллицы и латинского алфавитов</li><li>Любые цифры</li><li>Символы -_.</li></lu>Длина от 3 до 32 символов";
                     err_msg += "</div>";
                     $(error_form).html(err_msg);
                     break;

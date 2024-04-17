@@ -156,13 +156,27 @@
             return;
         }
         
-        public static function UserWriteComment($user, $id, $comment){
-            $result = TulaTur::GetPlace($id);
-            $json = json_decode($result["Comments"], true);
-            $json[$user] = $comment;
-            $json_str = json_encode($json,JSON_UNESCAPED_UNICODE);
+        // public static function UserWriteComment($user, $id, $comment){
+        //     $result = TulaTur::GetPlace($id);
+        //     $json = json_decode($result["Comments"], true);
+        //     $json[$user] = $comment;
+        //     $json_str = json_encode($json,JSON_UNESCAPED_UNICODE);
             
-            TulaTur::Request("UPDATE Places SET Comments='$json_str' WHERE Id = $id");
+        //     TulaTur::Request("UPDATE Places SET Comments='$json_str' WHERE Id = $id");
+        // }
+
+        public static function WriteComment($user, $place, $comment){
+            $date = date('Y-m-d');
+
+            $request_string =  "DELETE FROM Comments WHERE (Place, User) = ($place, '$user');";
+            $request_string1 = "INSERT INTO Comments VALUES ($place, '$user', '$date', '$comment');";
+
+            TulaTur::Request($request_string);
+            TulaTur::Request($request_string1);
+        }
+
+        public static function GetCommentsForPlace($place){
+            return TulaTur::Request("SELECT User, Date, Comment FROM Comments WHERE Place = $place")->fetch_all(MYSQLI_ASSOC);
         }
 
         public static function GetAllTags(){
@@ -257,39 +271,31 @@
             return (bool)TulaTur::Request(sprintf("SELECT EXISTS(SELECT 1 FROM Users WHERE Login = '%s' LIMIT 1)", $name))->fetch_array()[0];
         }
 
-        private static function TestPassword($password){
-            $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/';
+        public static function TestPassword($password){
+            $pattern = '/^(?!.*[а-яА-ЯёЁ])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,32}$/'; 
             return (bool)preg_match($pattern, $password);
         }
 
-        public static function WriteComment($user, $place, $comment){
-            $date = date('Y-m-d');
-
-            $request_string = "DELETE FROM Comments WHERE (Place, User) = ($place, '$user'); 
-            INSERT INTO Comments VALUES ($place, '$user', '$date', '$comment')";
-
-            $request_string1 = "UPDATE Comments Set Comment='$comment' where (Place, User) = ($place, '$user')
-            If(@@ROWCOUNT=0)
-            INSERT into Comments (Place, User, Date, Comment) Values ($place, '$user', '2024-04-23', '$comment')";
-
-            return TulaTur::Request($request_string1);
+        public static function TestLogin($login){
+            $pattern = '/^[а-яА-ЯёЁa-zA-Z0-9-_\.]{3,32}$/'; 
+            return (bool)preg_match($pattern, $login);
         }
     }
 
 
     function getIntersect($arr1_json, $arr2)
-{
-    $arr1 = json_decode($arr1_json);
-    foreach($arr1 as $val1)
     {
-        foreach($arr2 as $val2)
+        $arr1 = json_decode($arr1_json);
+        foreach($arr1 as $val1)
         {
-            if($val1 == $val2)
-            { return true; }
+            foreach($arr2 as $val2)
+            {
+                if($val1 == $val2)
+                { return true; }
+            }
         }
+        return false;
     }
-    return false;
-}
 
     function TwoStrings($what_find, $where_find){
         $what_find = mb_strtolower($what_find);
@@ -339,10 +345,43 @@
         return $h_s.":".$m_s;
     }
 
+    function TestIntervals($b1, $e1, $b2, $e2){
+        return $e1-$b1 + $e2-$b2 > max($e1, $e2) - min($b1, $b2);
+    }
+
+    function IsDayOrNight($schedule_json){
+        $shedule = json_decode($schedule_json);
+        $is_day = 0;
+        $is_night = 0;
+        foreach($shedule as $day){
+            $h_b = $day[0]/10000;
+            $h_e = $day[1]/10000;
+            if($h_e < $h_b) $h_e+=24;
+
+            if(TestIntervals(6,20, $h_b, $h_e)){
+                $is_day = 1;
+            }
+            if(TestIntervals(0, 5, $h_b, $h_e) or TestIntervals(21, 29, $h_b, $h_e)){
+                $is_night = 2;
+            }
+        }
+        return $is_day + $is_night;
+    }
+
+
     function GetPrevPageOr($pageor){
         if(isset($_SESSION['prev_page'])){
             return $_SESSION['prev_page'];
         }
         return $pageor;
+    }
+
+    function GetMessageFromList($messages, $user){
+        foreach($messages as $message){
+            if($message['User'] == $user) {
+                return $message;
+            }
+        }
+        return null;
     }
 ?>

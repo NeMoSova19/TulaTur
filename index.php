@@ -27,10 +27,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/header.js"></script>
     <script src="https://api-maps.yandex.ru/v3/?apikey=aaa5550c-e388-41b3-9114-2471118f4cdd&lang=ru_RU"></script>
-
     <title>Document</title>
 </head>
 <body>
@@ -46,12 +47,12 @@
         </section>
         <section class="section_background"></section>
         <section class="main_app_background">
-            <form action="/php_scripts/tags.php" method="post">
+            <form id="form-search">
                 <div class="search-container">
                     <div class="search-section">
-                        <input type="text" class="search-input" name="search-input" placeholder="Введите запрос..." value='<?= isset($_SESSION['search-input'])?$_SESSION['search-input']:''; ?>'>
-                        <button class="search-button"><p>Поиск<p></button>
-                        <button type="button" class="reset-tags search-button"><p>Сбросить</p></button>
+                        <input  type="text"   class="search-input" name="search-input" placeholder="Введите запрос..." value='<?= isset($_SESSION['search-input'])?$_SESSION['search-input']:''; ?>' onkeypress="return event.keyCode != 13;">
+                        <!-- <button type="button" class="search-button">            <p>Поиск<p>     </button> -->
+                        <button type="button" class="reset-tags search-button"> <p>Сбросить</p> </button>
                     </div>
                 </div>
                 <div class="accordion" id="accordionExample">
@@ -81,27 +82,11 @@
                 <img class="switcher_logo switcher_logo-night" src="img/night.png" alt="переключатель" style="display:none;">
                 <button class="night-type"><h2 class="day_tour_text night_under">Ночной тур</h2></button>
             </div>
+
            
-            <div class="places">
-                <?php 
-                foreach($result as $row):
-                    if(isset($_SESSION['tags']) and getIntersect($row['Tags'], $_SESSION['tags']) or !isset($_SESSION['tags'])):
-                        if(!isset($_SESSION['search-input']) or isset($_SESSION['search-input']) and ( empty($_SESSION['search-input']) or TwoStrings($_SESSION['search-input'], $row['Name']) or TwoStrings($_SESSION['search-input'], $row['ShortDescription']) or TwoStrings($_SESSION['search-input'], $row['Description']))):
-                    ?>
-                <div class="place">
-                    <div class="text">
-                        <li class="names_of_items">
-                            <a class="names_of_items" href="/blank.php?id=<?= $row["ID"];?>"> <?= $row["Name"]; ?></a>
-                        </li>
-                        <li class="description_of_items"><?= $row["ShortDescription"]; ?></li>
-                    </div>
-                    <div class="build-route">
-                        <a href="/blank.php?id=<?= $row["ID"];?>" class="text-field_input" id="button" value=<?= $row["Location"]; ?>>
-                            Построить маршрут
-                        </a>
-                    </div>
-                </div>
-                <?php endif; endif; endforeach; ?>
+            <div class="places" id="places">
+                <h4 style='margin-left: auto; margin-right: auto; display: table;'>Ничего не найдено</h4>
+                
             </div>
 
         </section>
