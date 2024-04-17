@@ -12,6 +12,9 @@
     .btn_icon_heart{
         margin-left: 100px;
         }
+    .main_app_background{
+        width: 80%;
+    }
 }
 
 @media only screen and (max-width: 800px){
@@ -47,9 +50,30 @@
         font-size: 1.3em;
         display: none;
     }
+    .btn-marks{
+        justify-content: space-evenly;
+    }
+    .btn-action{
+        justify-content: center; 
+    }
+    .place_info{
+        margin: 0;
+    }
+    .btn-outline-danger svg{
+        width: 20px;
+    }
+    .btn-outline-success svg{
+        width: 20px;
+    }
+    .btn_planet_link svg{
+        width: 20px;
+    }
+    .main_app_background{
+        width: 90%;
+    }
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px){ 
     .main_title{
         font-size: 2em;
     }
@@ -59,11 +83,11 @@
 
     .logo_img{
         width: 50px;
-        padding: 15px 25px;
-    }
+        padding: 15px 25px;  
+    } 
     .logo_name{
         font-size: 1.3em;
-        display: none;
+        display: none; 
     }
     .first{
         padding: 40px 0px 5px 0px;
@@ -89,7 +113,7 @@
         justify-content: space-evenly;
         flex-wrap: wrap;
         }
-}
+} 
 
 @media only screen and (max-width: 500px){
     .nav_menu{
@@ -119,6 +143,9 @@
     .auth{
         margin-left: 10px;
     }
+    .tags{
+        margin-top: 20px;
+    }
 }
 
 @media only screen and (max-width: 375px){
@@ -131,6 +158,9 @@
     }
     .auth{
         margin-left: 7px;
+    }
+    .tags{
+        margin-top: 60px;
     }
 }
 
