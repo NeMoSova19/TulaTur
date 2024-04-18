@@ -1,6 +1,7 @@
 <head>
     <script src="js/header.js"></script>
     <link rel="stylesheet" href="css/header.css" type="text/css">
+    <link rel="stylesheet" href="css/header_adaptive.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
 </head>
 
