@@ -26,6 +26,7 @@
 <!-- <?php include "header.php"; ?> --> <!-- Надо встроить TopBar ! -->
 <body class="background-login">
     <div class="container-login">
+    <button class="btn_back"><img class="btn_back_img" src="img/btn_back.png" alt="Back"></button>
         <form class="form-login" id="form-login"> <!-- action="/php_scripts/login.php", method="POST" -->
             <p сlass="authorization-title">Войти</p>
             <div class="mb-3">
