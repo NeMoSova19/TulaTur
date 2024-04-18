@@ -11,7 +11,13 @@
     }
     .btn_icon_heart{
         margin-left: 100px;
-        }
+    }
+    .accordion-body{
+        grid-template-columns: auto;
+    }
+    .accordion-body div {
+        word-wrap: break-word;
+    }
 }
 
 @media only screen and (max-width: 800px){
@@ -118,6 +124,14 @@
     }
     .auth{
         margin-left: 10px;
+    }
+    .accordion {
+        margin: 0 auto;
+        justify-content: center;
+        display: flex;
+    }
+    .accordion-item{
+        width: 300px;
     }
 }
 

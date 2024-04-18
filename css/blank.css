@@ -259,6 +259,10 @@ a{
     width: 100%;
 }
 
+.toast-body{
+    word-wrap: normal;
+}
+
 .form-label{
     padding-left: 20px;
     margin-top: 20px;
