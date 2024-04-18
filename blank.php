@@ -210,7 +210,7 @@
                                     <label for="comment-input" class="form-label">Оставить комментарий</label>
                                 <!-- </div> -->
                                 <div class="comment-field comment-body">
-                                    <input name="comment" class="form-control" id="comment-input" placeholder='<?=isset($user)?"Введите свой комментарий":"Авторизуйтесь для написания комментария"?>' value='<?=isset($userComment)?$userComment['Comment']:''?>' <?=isset($user)?'':'disabled';?>>
+                                    <textarea name="comment" class="form-control" id="comment-input" placeholder='<?=isset($user)?"Введите свой комментарий":"Авторизуйтесь для написания комментария"?>' value='<?=isset($userComment)?$userComment['Comment']:''?>' <?=isset($user)?'':'disabled';?>></textarea>
                                 </div>
                                 <button <?=isset($user)?'':'disabled';?> class="btn btn-outline-dark btn-comment">
                                     <?=isset($userComment)?'Изменить':'Отправить';?>
