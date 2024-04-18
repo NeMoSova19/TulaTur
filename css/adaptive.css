@@ -125,6 +125,14 @@
     .auth{
         margin-left: 10px;
     }
+    .accordion {
+        margin: 0 auto;
+        justify-content: center;
+        display: flex;
+    }
+    .accordion-item{
+        width: 300px;
+    }
 }
 
 @media only screen and (max-width: 375px){
