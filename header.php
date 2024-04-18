@@ -1,5 +1,7 @@
 <?php
-$user_authenticated = isset($user);
+
+$user_authenticated = isset($_SESSION['login'])?true:false;
+
 ?>
 
 <head>
