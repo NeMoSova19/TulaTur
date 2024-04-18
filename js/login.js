@@ -42,4 +42,11 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         $inputs.removeAttr('checked').removeAttr('selected').removeAttr('disabled');
     });
+
+    var btn_back = document.querySelector('.btn_back');
+
+    btn_back.addEventListener('click', function() {
+        window.location.href = "/php_scripts/back_to_save_loc.php";
+    });
+
 });

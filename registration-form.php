@@ -16,14 +16,13 @@
     <link rel="stylesheet" href="css/adaptive_login-form.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="css/header.css" type="text/css"> -->
-    <!-- <script src="js/header.js"></script> -->
+
     <script src="js/registration.js"></script>
 </head>
-<!-- <?php include "header.php"; ?> --> <!-- Тут тоже надо настроить-->
+
 <body class="background-login background-registration">
     <div class="container-login">
-    <button class="btn_back"><img class="btn_back_img" src="img/btn_back.png" alt="Back"></button>
+    <button id="btn_back" class="btn_back"><img class="btn_back_img" src="img/btn_back.png" alt="Back"></button>
         <form class="form-login" id="form-login">
             <p сlass="authorization-title">Регистрация</p>
             <div class="mb-3">
