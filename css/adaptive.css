@@ -11,7 +11,13 @@
     }
     .btn_icon_heart{
         margin-left: 100px;
-        }
+    }
+    .accordion-body{
+        grid-template-columns: auto;
+    }
+    .accordion-body div {
+        word-wrap: break-word;
+    }
 }
 
 @media only screen and (max-width: 800px){
