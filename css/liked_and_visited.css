@@ -61,12 +61,77 @@ p{
     margin-top: -450px;
     margin-bottom: 70px;
     padding: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    justify-items: center;
+}
+
+.text-field_input {
+    border-radius: 20px;
+    border: 1px solid #000;
+    text-align: center;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+    background: #fff;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    display: inline-block;
+    background-color: #f1edd0d4;
+}
+
+.card-title{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.card-title span{
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.card-text{
+    font-size: 14px;
+}
+
+.card-text-visited{
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.card{
+    min-width: 400px;
+    box-shadow: 0px 1px 10px 4px rgba(89,  65,  31, 0.2);
+}
+
+.add-place{
+    display: flex;
+    align-items: center;
+}
+
+.add-place p{
+    margin-right: 15px;
+}
+
+.btn-visited{
+    border: none;
+    border-radius: 10px;
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
+}
+
+.btn-liked{
+    border: none;
+    border-radius: 10px;
 }
 
 /* просто для внешнего вида накидал, удалить потом */
-.main_app_background p{
+/* .main_app_background p{
     font-family: "Literata", serif;
     font-size: 20px;
     font-weight: 400;
     padding: 1em 0;
-}
+} */

@@ -3,8 +3,11 @@
         <a href="/php_scripts/reset-tags.php" class="logo_name first">Тула</a>
         <div class="logo_block"><a href="/php_scripts/reset-tags.php" class="logo"><img class="logo_img" src="img/logo.png" alt="Logo"></a></div>
         <a href="/php_scripts/reset-tags.php" class="logo_name second">Тур</a>
-        <button class="btn_icon_heart btn-header"><img class="nav-icon_heart" src="img/icon_heart.png" alt=""> <span class="nav-icon_heart-text">Избранное</span></button>
-        <button class="btn_icon_suitcase btn-header"><img class="nav-icon_suitcase" src="img/icon_suitcase.png" alt=""> <span class="nav-icon_suitcase-text">Мои поездки</span></button>
+        <button class="btn_icon_heart btn-header">
+            <img class="nav-icon_heart" src="img/icon_heart.png" alt=""> 
+            <a class="nav-icon_heart-text" href="liked.php">Хочу посетить</a>
+        </button>
+        <button class="btn_icon_suitcase btn-header"><img class="nav-icon_suitcase" src="img/icon_suitcase.png" alt=""> <a class="nav-icon_suitcase-text" href="visited.php">Мои поездки</a></button>
         
         <button class="auth btn-header" id="loginButton">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right auth_logo" viewBox="0 0 16 16"> 
