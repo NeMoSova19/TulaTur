@@ -3,6 +3,7 @@ include("../tulatur.php");
 session_start();
 
     $tags = empty($_POST['tags'])?null:explode(',', $_POST['tags']);
+    // $tags2 = (isset($_SESSION['tags']) and !empty($_SESSION['tags'])) ? $_SESSION['tags'] : null;
     $daynight = $_POST['daynight'];
     $search = empty($_POST['search'])?null:$_POST['search'];
 
@@ -14,8 +15,9 @@ session_start();
     
     $result = '';
     foreach($places as $row):
-        if($tags and getIntersect($row['Tags'], $tags) or !$tags):
-            if(!$search or $search and ( TwoStrings($search, $row['Name']) or TwoStrings($search, $row['ShortDescription']) or TwoStrings($search, $row['Description']))):
+        $text = $row['Name'] . ' ' . $row['ShortDescription'] . ' ' . $row['Description'];
+        if(($tags and getIntersect($row['Tags'], $tags) or !$tags) ):
+            if(!$search or $search and TwoStrings($search, $text)):
                 $dayornight = IsDayOrNight($row['Schedule']);
                 if($dayornight == 3 or $dayornight == 1 - $daynight):
                     $p_loc = (string)$row['Location'];
@@ -42,17 +44,18 @@ session_start();
             endif; 
         endif; 
     endforeach;
-    
+    unset($_SESSION['tags']);
 
     // Устанавливаем заголовок ответа в формате html
     header('Content-Type: text/html; charset=utf-8');
 
     if(!$result){
-        echo "<h1 style='
-        margin-left: auto;
-        margin-right: auto;
-        display: table;
-    '>Ничего не найдено</h1>";
+        if($daynight == 1){
+            echo "<h1 style='margin-left: auto;margin-right: auto;display: table; font-size: calc(1.325rem + .9vw); color:#ffffff';>Ничего не найдено</h1>";
+        }
+        else{
+            echo "<h1 style='margin-left: auto;margin-right: auto;display: table; font-size: calc(1.325rem + .9vw);'>Ничего не найдено</h1>";
+        }
     }
     else{
         echo $result;

@@ -305,6 +305,7 @@
         $arr_where = mb_split(' ', $where_find);
 
         foreach($arr_what as $what){
+            if(empty($what)) continue;
             $max_percent = 0;
             foreach($arr_where as $where){
                 $local_percent = 0;
