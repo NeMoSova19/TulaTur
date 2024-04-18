@@ -221,6 +221,8 @@
 
             unset($fav[array_search($id, $fav)]);
             $fav_json = json_encode($fav);
+
+
             TulaTur::Request("UPDATE Users SET Favorites = '$fav_json' WHERE Login='$user'");
             return false;
         }
