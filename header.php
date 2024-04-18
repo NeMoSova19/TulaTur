@@ -1,3 +1,7 @@
+<?php
+$user_authenticated = isset($user);
+?>
+
 <head>
     <script src="js/header.js"></script>
     <link rel="stylesheet" href="css/header.css" type="text/css">
@@ -11,17 +15,21 @@
             <a href="/php_scripts/reset-tags.php" class="logo_name first">Тула</a>
             <div class="logo_block"><a href="/php_scripts/reset-tags.php" class="logo"><img class="logo_img" src="img/logo.png" alt="Logo"></a></div>
             <a href="/php_scripts/reset-tags.php" class="logo_name second">Тур</a>
-            <button class="btn_icon_heart btn-header">
+            <button class="btn_icon_heart btn-header" <?= $user_authenticated ? '' : 'disabled' ?>>
                 <img class="nav-icon_heart" src="img/icon_heart.png" alt=""> 
-                <a class="nav-icon_heart-text" href="liked.php">
-                    Хочу посетить
-                </a>
+                <?php if ($user_authenticated): ?>
+                    <a class="nav-icon_heart-text" href="liked.php">Хочу посетить</a>
+                <?php else: ?>
+                    <span class="nav-icon_suitcase-text">Хочу посетить</span>
+                <?php endif; ?>
             </button>
-            <button class="btn_icon_suitcase btn-header">
+            <button class="btn_icon_suitcase btn-header" <?= $user_authenticated ? '' : 'disabled' ?>>
                 <img class="nav-icon_suitcase" src="img/icon_suitcase.png" alt=""> 
-                <a class="nav-icon_suitcase-text" href="visited.php">
-                    Мои поездки
-                </a>
+                <?php if ($user_authenticated): ?>
+                    <a class="nav-icon_suitcase-text" href="visited.php">Мои поездки</a>
+                <?php else: ?>
+                    <span class="nav-icon_suitcase-text">Мои поездки</span>
+                <?php endif; ?>
             </button>
             
             <button class="auth btn-header" id="loginButton">
