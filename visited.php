@@ -16,7 +16,6 @@
         array_push($all_trips,TulaTur::GetPlace($trip));
     }
     TulaTur::Disconnect();
-
 ?>
 
 <!DOCTYPE html>
