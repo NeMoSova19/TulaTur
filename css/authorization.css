@@ -127,5 +127,27 @@ body:after {
     font-size: 1.2em;
 }
 
+.btn_back{
+    justify-self: flex-start;
+    align-self: flex-start;
+    position: absolute;
+    margin-right: 75%;
+    margin-top: 5%;
+    border: none;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    width: 2.7em;
+    height: 2.7em;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn_back_img{
+    height: 50%;
+    margin-bottom: 7%;
+    margin-right: 7%;
+}
+
 
 

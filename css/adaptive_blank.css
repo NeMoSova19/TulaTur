@@ -149,10 +149,10 @@
 }
 
 @media only screen and (max-width: 375px){
-    .logo_img{
+    /* .logo_img{
         width: 40px;
         padding: 25px 15px;
-    }
+    } */
     .btn_icon_suitcase{
         margin-left: 7px;
     }
