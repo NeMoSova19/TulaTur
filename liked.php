@@ -47,7 +47,6 @@
             </div>
             <div class="title"><h1 class="main_title">Избранное</h1></div>
         </section>
-        <!-- <div class="title"><h1 class="main_title">Избранное</h1></div> -->
         <section class="section_background"></section>
         <section class="main_app_background">
 
