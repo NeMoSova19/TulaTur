@@ -47,10 +47,10 @@
         <section class="section_background"></section>
         <section class="main_app_background">
 
-        <?php foreach($all_trips as $trip): ?>
+        <?php foreach($all_trips as $trip): $p_id = (string)$trip['ID'];?>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title"><span><?=$trip['Name']?></span></h5>
+                    <a class="card-title" href='/blank.php?id=<?=$p_id?>'><span><?=$trip['Name']?></span></a>
                     <p class="card-text-visited"><?=$trip['ShortDescription']?></p>
                     <button type="button" class="btn btn-outline-success btn-visited btn_add_to_visited js_trips" title="Посетил" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
