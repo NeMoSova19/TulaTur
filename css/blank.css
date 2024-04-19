@@ -50,18 +50,14 @@ a{
     margin: auto;
     margin-top: -600px;
     margin-bottom: 70px;
-    padding: 2em 2em 3em 2em;
+    padding: 2em 2em 2em 2em;
 }
 
 .place_info {
     display: grid;
-    width: 90%;
     font-family: "Literata", serif;;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1em;
-    grid-auto-rows: minmax(5%, auto);
-    margin: 1em 2em;
-    padding-left: 2em;
 }
 
 .discription{
@@ -245,7 +241,7 @@ a{
 .comments{
     grid-row: 7;
     grid-column: span 3;
-    padding-top: 70px;
+    padding-top: 2em;
 }
 
 .other-comments-container{

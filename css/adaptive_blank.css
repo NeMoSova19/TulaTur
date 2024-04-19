@@ -56,9 +56,6 @@
     .btn-action{
         justify-content: center; 
     }
-    .place_info{
-        margin: 0;
-    }
     .btn-outline-danger svg{
         width: 20px;
     }
