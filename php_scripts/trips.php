@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($result === true){
         TulaTur::RemoveTrip($user, $id);
     }
+    TulaTur::RemoveFavorite($user, $id);
     TulaTur::Disconnect();
     
     $out = array(

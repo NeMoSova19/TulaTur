@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         $.post('/php_scripts/comment.php', {id:id, comment:com},
         function(response) {
-            console.log(response.error);
-            var error_form = document.querySelector('.error-message');
+            var place = document.querySelector('.btn-comment');
+            $(place).html("Изменить");
         });
     });
 });

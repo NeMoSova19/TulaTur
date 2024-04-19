@@ -37,9 +37,6 @@
 </head>
 <?php include "header.php"; ?>
 <body>
-<!-- Тут наверное надо убрать из хедера вкладку "избранное",
-    либо лобавить в нее какой-то функционал, а-ля "вернуться в начало страницы", хз -->
-
     <main>
         <section class="section_main">
             <div class="main_title-block">

@@ -202,7 +202,8 @@
         }
 
         public static function GetUserFavorites($user){
-            return json_decode(TulaTur::Request("SELECT Favorites FROM Users WHERE Login='$user'")->fetch_all(MYSQLI_ASSOC)[0]['Favorites']);
+            $result = TulaTur::Request("SELECT Favorites FROM Users WHERE Login='$user'")->fetch_all(MYSQLI_ASSOC)[0]['Favorites'];
+            return json_decode($result, false);
         }
 
         public static function AddFavorite($user, $id){
@@ -210,18 +211,18 @@
             if(in_array($id, $fav)) return true;
 
             array_push($fav, $id);
-            $fav_json = json_encode($fav);
+            $fav_json = json_encode(array_values($fav));
             TulaTur::Request("UPDATE Users SET Favorites = '$fav_json' WHERE Login='$user'");
             return false;
         }
 
         public static function RemoveFavorite($user, $id){
             $fav = TulaTur::GetUserFavorites($user);
+            
             if(!in_array($id, $fav)) return false;
 
             unset($fav[array_search($id, $fav)]);
-            $fav_json = json_encode($fav);
-
+            $fav_json = json_encode(array_values($fav));
 
             TulaTur::Request("UPDATE Users SET Favorites = '$fav_json' WHERE Login='$user'");
             return false;
@@ -236,7 +237,7 @@
             if(in_array($id, $trip)) return true;
 
             array_push($trip, $id);
-            $trip_json = json_encode($trip);
+            $trip_json = json_encode(array_values($trip));
             TulaTur::Request("UPDATE Users SET MyTrips = '$trip_json' WHERE Login='$user'");
             return false;
         }
@@ -246,7 +247,7 @@
             if(!in_array($id, $trip)) return false;
 
             unset($trip[array_search($id, $trip)]);
-            $trip_json = json_encode($trip);
+            $trip_json = json_encode(array_values($trip));
             TulaTur::Request("UPDATE Users SET MyTrips = '$trip_json' WHERE Login='$user'");
             return false;
         }
@@ -279,7 +280,7 @@
         }
 
         public static function TestLogin($login){
-            $pattern = '/^[а-яА-ЯёЁa-zA-Z0-9-_\.]{3,32}$/'; 
+            $pattern = '/^[а-яА-ЯёЁa-zA-Z0-9-_\.]{4,32}$/'; 
             return (bool)preg_match($pattern, $login);
         }
     }

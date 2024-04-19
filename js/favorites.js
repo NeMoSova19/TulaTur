@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
             if(data.result){
                 $('.js_favorites', $(btns)).css('background-color', '#dc3545');
                 $('.js_favorites', $(btns)).css('color', '#ffffff');
+                $('.js_trips', $(btns)).css('background-color', 'transparent');
+                $('.js_trips', $(btns)).css('color', '#198754');
             }
             else{
                 $('.js_favorites', $(btns)).css('background-color', 'transparent');
@@ -30,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
             if(data.result){
                 $('.js_trips', $(btns)).css('background-color', '#198754');
                 $('.js_trips', $(btns)).css('color', '#ffffff');
+                $('.js_favorites', $(btns)).css('background-color', 'transparent');
+                $('.js_favorites', $(btns)).css('color', '#dc3545');
             }
             else{
                 $('.js_trips', $(btns)).css('background-color', 'transparent');
