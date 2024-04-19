@@ -5,10 +5,10 @@ $user_authenticated = isset($_SESSION['login'])?true:false;
 ?>
 
 <head>
-    <script src="js/header.js"></script>
-    <link rel="stylesheet" href="css/header.css" type="text/css">
-    <link rel="stylesheet" href="css/header_adaptive.css">
+    <link rel="stylesheet" href="/css/header.css" type="text/css">
+    <link rel="stylesheet" href="/css/header_adaptive.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+    <script src="/js/header.js"></script>
 </head>
 
 <body>
@@ -20,7 +20,7 @@ $user_authenticated = isset($_SESSION['login'])?true:false;
             <button class="btn_icon_heart btn-header" <?= $user_authenticated ? '' : 'disabled' ?>>
                 <img class="nav-icon_heart" src="img/icon_heart.png" alt=""> 
                 <?php if ($user_authenticated): ?>
-                    <a class="nav-icon_heart-text" href="liked.php">Хочу посетить</a>
+                    <a class="nav-icon_heart-text" href="/liked.php">Хочу посетить</a>
                 <?php else: ?>
                     <span class="nav-icon_suitcase-text">Хочу посетить</span>
                 <?php endif; ?>
@@ -28,7 +28,7 @@ $user_authenticated = isset($_SESSION['login'])?true:false;
             <button class="btn_icon_suitcase btn-header" <?= $user_authenticated ? '' : 'disabled' ?>>
                 <img class="nav-icon_suitcase" src="img/icon_suitcase.png" alt=""> 
                 <?php if ($user_authenticated): ?>
-                    <a class="nav-icon_suitcase-text" href="visited.php">Мои поездки</a>
+                    <a class="nav-icon_suitcase-text" href="/visited.php">Мои поездки</a>
                 <?php else: ?>
                     <span class="nav-icon_suitcase-text">Мои поездки</span>
                 <?php endif; ?>

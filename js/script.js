@@ -146,8 +146,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    //StartSearch();
-    ////
 
     nightButton.addEventListener("click", function() {
         daynight = 1;

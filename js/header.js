@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var buttonText = loginButton.innerText.trim(); 
         
         if (buttonText === 'Войти') { 
-            window.location.href = 'login-form.php'; 
+            window.location.href = '/login-form.php'; 
             return;
         }
         window.location.href = '/php_scripts/logout.php'; 

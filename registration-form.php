@@ -12,12 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/authorization.css">
-    <link rel="stylesheet" href="css/adaptive_login-form.css">
+    <link rel="stylesheet" href="/css/authorization.css">
+    <link rel="stylesheet" href="/css/adaptive_login-form.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    <script src="js/registration.js"></script>
+    <script src="/js/registration.js"></script>
 </head>
 
 <body class="background-login background-registration">
@@ -59,7 +59,7 @@
               </div>
             <button type="submit" class="btn btn-primary btn-login btn-registration">Зарегистрироваться</button>
             <div class="form-action">
-              <span>Уже есть аккаунт?</span><a href="login-form.php">Войти</a>
+              <span>Уже есть аккаунт?</span><a href="/login-form.php">Войти</a>
             </div>
         </form>
     </div>
