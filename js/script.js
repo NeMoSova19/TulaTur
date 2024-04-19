@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     ////
 
-    function StartSearch(endfunc){
+    function StartSearch(){
         var searchInputValue = document.querySelector('.search-input').value;
         var tagCheckboxes = document.querySelectorAll('input[name="tags[]"]');
     
@@ -163,12 +163,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
     resetTagsButton.addEventListener('click', function(){
 
-        $.post('/php_scripts/generate_places.php', {tags:'', daynight:daynight, search:''},
-        function(response) {
-            var place = document.querySelector('.places');
-            $(place).html(response);
-        });
-
         var elements = document.getElementById("form-search").elements;
         
         for (var i = 0; i < elements.length; i++) {
@@ -180,6 +174,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 element.checked = false;
             }
         }
+
+        StartSearch();
 
         return;
     });

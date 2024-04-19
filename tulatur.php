@@ -280,7 +280,7 @@
         }
 
         public static function TestLogin($login){
-            $pattern = '/^[а-яА-ЯёЁa-zA-Z0-9-_\.]{4,32}$/'; 
+            $pattern = '/^[а-яА-ЯёЁa-zA-Z0-9]{3,32}$/u'; 
             return (bool)preg_match($pattern, $login);
         }
     }
