@@ -11,19 +11,11 @@ ymaps.ready(init);
 
         let control = myMap.controls.get('routePanelControl');
 
-        const options = {
-            enableHighAccuracy: true,
-            timeout: 5000,
-            maximumAge: 0,
-        };
-
-        function success(pos) {
-            const crd = pos.coords;
-            let reverseGeocoder = ymaps.geocode([crd.latitude, crd.longitude]);
-
-            reverseGeocoder.then(function (res) {
+        ymaps.geolocation.get({provider:"yandex",enableHighAccuracy: true,timeout: 5000,maximumAge: 0,})
+            .then(function(res){
+                console.log(res);
                 currentPlace = res.geoObjects.get(0).properties.get('text')
-                console.log(currentPlace)
+                console.log("CurrentPlace = " + currentPlace)
 
                 toPlace = "Тула, " + document.querySelector(".adress-map").innerHTML;
                 console.log("ToPlace: " + toPlace);
@@ -35,24 +27,9 @@ ymaps.ready(init);
                     toEnabled: false,
                     to: `${city}, ${toPlace}`,
                 });
-            });
-
-
-            control.routePanel.options.set({
-                types: {
-                    masstransit: true,
-                    auto: true,
-                    pedestrian: true,
-                    taxi: true
-                }
-            });
-        }
-
-        
-
-        function error(err) {
+            
+        })
+        .catch(function(err){
             console.warn(`ERROR(${err.code}): ${err.message}`);
-        }
-
-        navigator.geolocation.getCurrentPosition(success, error, options);
+        });
     }
